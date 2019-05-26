@@ -23,3 +23,8 @@ Khimera is one of the fiction app I made for my end-year project : a design fict
 * NativeTachyons for styling
 * react animatable for animations
 * Undraw + Figma for illustrations
+
+
+<p align="center">
+<img src="https://i.imgur.com/etVzXk9.png" />
+</p>
