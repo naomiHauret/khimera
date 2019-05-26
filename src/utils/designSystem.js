@@ -1,0 +1,15 @@
+// Colors
+// 100 is the lightest hue
+export const COLOR_BLACK = "hsl(0,0%,0%)"
+export const COLOR_BLUE = "hsl(212,100%,65%)"
+export const COLOR_BLUE_40A = "rgba(79, 160, 255, 0.55)"
+export const COLOR_RED = "hsl(345,100%,58%)"
+export const COLOR_WHITE = "hsl(0,0%,100%)"
+export const COLOR_GREY_100 = "hsl(212,31%,89%)"
+export const COLOR_GREY_200 = "hsl(0,0%,44%)"
+export const COLOR_YELLOW_100 = "hsl(65,100%,76%)"
+export const COLOR_YELLOW_200 = "hsl(47,100%,66%)"
+export const COLOR_YELLOW_300 = "hsl(65,59%,63%)"
+export const COLOR_YELLOW_400 = "hsl(54,34%,55%)"
+export const COLOR_YELLOW_500 = "hsl(54,45%,27%)"
+export const COLOR_YELLOW_600 = "hsl(56,15%,21%)"
