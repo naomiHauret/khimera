@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://i.imgur.com/OP2AKAI.png" />
+<img src="https://i.imgur.com/ckmYG8m.png" />
 </p>
 
 # Khimera
