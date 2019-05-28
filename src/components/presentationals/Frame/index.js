@@ -4,7 +4,7 @@ import Text from "components/presentationals/Text"
 import Body from "components/presentationals/Body"
 import { wrap } from "react-native-style-tachyons"
 import { MaterialIcons } from "@expo/vector-icons"
-import { withNavigation } from 'react-navigation'
+import { withNavigation } from "react-navigation"
 
 const themeSystem = {
   backgrounds: {
@@ -17,7 +17,7 @@ class Frame extends PureComponent {
     const { theme, children, withBackButton, navigation } = this.props
 
     return (
-      <View cls={`flx-i ${themeSystem.backgrounds[theme]}`} style={{ position: 'relative'}}>
+      <View cls={`flx-i ${themeSystem.backgrounds[theme]}`} style={{ position: "relative" }}>
         <Text
           uppercase={true}
           type="logo"
@@ -28,15 +28,15 @@ class Frame extends PureComponent {
         >
           Khimera
         </Text>
-        {withBackButton === true && <TouchableOpacity cls="absolute" style={{ left: 10, top: 20 }} onPress={() => navigation.goBack()}>
-          <MaterialIcons size={25} name="arrow-back" cls="grey-200" />
-        </TouchableOpacity>}
+        {withBackButton === true && (
+          <TouchableOpacity cls="absolute" style={{ left: 10, top: 20 }} onPress={() => navigation.goBack()}>
+            <MaterialIcons size={25} name="arrow-back" cls="grey-200" />
+          </TouchableOpacity>
+        )}
         <Body theme={theme}>{children}</Body>
       </View>
     )
   }
 }
 
-export default withNavigation(
-  wrap(Frame)
-)
+export default withNavigation(wrap(Frame))

@@ -45,7 +45,7 @@ class Profiles extends PureComponent {
       setAsCurrentHuman,
       setAsCurrentAnimal,
       currentAnimal,
-      currentHuman
+      currentHuman,
     } = this.props
     const humansList = Object.keys(humans)
     const animalsList = Object.keys(animals)
@@ -89,16 +89,19 @@ class Profiles extends PureComponent {
                   key={human}
                   style={{ position: "relative" }}
                 >
-                  {currentHuman === human && <FontAwesome
-                     name="dot-circle-o"
-                     cls="yellow-200" size={25}
-                     style={{
-                       position: 'absolute',
-                       top: 5,
-                       right: 5,
-                       elevation: 20,
-                     }}
-                  />}
+                  {currentHuman === human && (
+                    <FontAwesome
+                      name="dot-circle-o"
+                      cls="yellow-200"
+                      size={25}
+                      style={{
+                        position: "absolute",
+                        top: 5,
+                        right: 5,
+                        elevation: 20,
+                      }}
+                    />
+                  )}
                   <Image
                     style={{
                       width: 115,
@@ -213,16 +216,19 @@ class Profiles extends PureComponent {
                   key={animal}
                   style={{ position: "relative" }}
                 >
-                  {currentAnimal === animal && <FontAwesome
-                    name="dot-circle-o"
-                    cls="yellow-200" size={25}
-                    style={{
-                      position: 'absolute',
-                      top: 5,
-                      right: 5,
-                      elevation: 20,
-                    }}
-                  />}
+                  {currentAnimal === animal && (
+                    <FontAwesome
+                      name="dot-circle-o"
+                      cls="yellow-200"
+                      size={25}
+                      style={{
+                        position: "absolute",
+                        top: 5,
+                        right: 5,
+                        elevation: 20,
+                      }}
+                    />
+                  )}
                   <Image
                     style={{
                       width: 115,
@@ -294,7 +300,14 @@ class Profiles extends PureComponent {
             ))}
           </ScrollView>
           <View cls="mta">
-            <Button handleOnPress={() => navigation.navigate(isCheckInCompleted === true ? "ScreenKhimeraCam" : "ScreenProfilesSaved")} theme="flat" muted={false} align="center">
+            <Button
+              handleOnPress={() =>
+                navigation.navigate(isCheckInCompleted === true ? "ScreenKhimeraCam" : "ScreenProfilesSaved")
+              }
+              theme="flat"
+              muted={false}
+              align="center"
+            >
               {isCheckInCompleted === false ? t("labels.saveAndFinish", translation) : t("labels.back", translation)}
             </Button>
           </View>

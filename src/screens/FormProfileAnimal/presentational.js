@@ -24,63 +24,73 @@ class ProfileAnimal extends PureComponent {
   _editPicture = (payload) => this.props.setPicture(payload)
 
   render() {
-    const { isAnimalProfileAlreadyRegistered, translation, navigation, formData, addProfile, updateProfile, checkInComplete, setAsCurrent } = this.props
+    const {
+      isAnimalProfileAlreadyRegistered,
+      translation,
+      navigation,
+      formData,
+      addProfile,
+      updateProfile,
+      checkInComplete,
+      setAsCurrent,
+    } = this.props
     const profile = navigation.getParam("id", "")
-    return <Fragment>
-      <NavigationEvents
-        onWillFocus={(payload) => {
-          if (navigation.getParam("id", "") !== "") {
-            this._editName(navigation.getParam("name", null))
-            this._editPicture(navigation.getParam("picture", null))
-          }
-        }}
-        onWillBlur={() => {
-          this._editName(null)
-          this._editPicture(null)
-        }}
-      />
-      <Form
-        navigation={navigation}
-        shouldDisplayBack={isAnimalProfileAlreadyRegistered}
-        translation={translation}
-        values={{
-          name: formData ? formData.name : null,
-          picture: formData ? formData.picture : null,
-          species: formData ? formData.species : null,
-          decoyModel: formData ? formData.decoyModel : null,
-        }}
-        editName={this._editName}
-        editPicture={this._editPicture}
-        onSubmit={() => {
-          if (profile === "") {
-            let id = Date.now()
-            addProfile({
-              id,
-              name: formData.name,
-              species: formData.species,
-              decoyModel: formData.decoyModel,
-              picture: formData.picture,
-            })
-            if (checkInComplete !== true) {
-              setAsCurrent(id)
+    return (
+      <Fragment>
+        <NavigationEvents
+          onWillFocus={(payload) => {
+            if (navigation.getParam("id", "") !== "") {
+              this._editName(navigation.getParam("name", null))
+              this._editPicture(navigation.getParam("picture", null))
             }
+          }}
+          onWillBlur={() => {
             this._editName(null)
             this._editPicture(null)
-            navigation.navigate("ScreenProfiles")
-          } else {
-            updateProfile({
-              id: profile,
-              name: formData.name,
-              picture: formData.picture,
-            })
-            this._editName(null)
-            this._editPicture(null)
-            navigation.navigate("ScreenProfilesSaved")
-          }
-        }}
-      />
-
-    </Fragment>
+          }}
+        />
+        <Form
+          navigation={navigation}
+          shouldDisplayBack={isAnimalProfileAlreadyRegistered}
+          translation={translation}
+          values={{
+            name: formData ? formData.name : null,
+            picture: formData ? formData.picture : null,
+            species: formData ? formData.species : null,
+            decoyModel: formData ? formData.decoyModel : null,
+          }}
+          editName={this._editName}
+          editPicture={this._editPicture}
+          onSubmit={() => {
+            if (profile === "") {
+              let id = Date.now()
+              addProfile({
+                id,
+                name: formData.name,
+                species: formData.species,
+                decoyModel: formData.decoyModel,
+                picture: formData.picture,
+              })
+              if (checkInComplete !== true) {
+                setAsCurrent(id)
+              }
+              this._editName(null)
+              this._editPicture(null)
+              navigation.navigate("ScreenProfiles")
+            } else {
+              updateProfile({
+                id: profile,
+                name: formData.name,
+                picture: formData.picture,
+              })
+              this._editName(null)
+              this._editPicture(null)
+              navigation.navigate("ScreenProfilesSaved")
+            }
+          }}
+        />
+      </Fragment>
+    )
   }
 }
 export default wrap(ProfileAnimal)

@@ -212,20 +212,26 @@ class Form extends PureComponent {
               />
               <Feather name="edit-2" size={16} cls="ml2 black" />
             </BlurView>
-            {shouldDisplayBack === true && <TouchableOpacity cls="absolute" style={{ left: 10, top: 20, elevation: 15, }} onPress={() => {
-              this._handleTypeName(null)
-              this._removePicture()
-              navigation.goBack()
-            }}>
-              <MaterialIcons size={25} name="arrow-back" cls="white" />
-            </TouchableOpacity>}
+            {shouldDisplayBack === true && (
+              <TouchableOpacity
+                cls="absolute"
+                style={{ left: 10, top: 20, elevation: 15 }}
+                onPress={() => {
+                  this._handleTypeName(null)
+                  this._removePicture()
+                  navigation.goBack()
+                }}
+              >
+                <MaterialIcons size={25} name="arrow-back" cls="white" />
+              </TouchableOpacity>
+            )}
           </View>
         ),
       },
       // We need a last empty step to avoid camera error
       {
-        component: <View />
-      }
+        component: <View />,
+      },
     ]
     return steps[currentStep].component
   }

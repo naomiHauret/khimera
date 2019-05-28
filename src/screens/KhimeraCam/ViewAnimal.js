@@ -1,15 +1,13 @@
 import React, { PureComponent, Fragment } from "react"
-import { View, WebView, Dimensions } from 'react-native'
+import { View, WebView, Dimensions } from "react-native"
 import { wrap } from "react-native-style-tachyons"
 import { t } from "utils/translation"
-import PropTypes from 'prop-types'
-import * as Animatable from 'react-native-animatable'
-
-
+import PropTypes from "prop-types"
+import * as Animatable from "react-native-animatable"
 
 class ViewAnimal extends PureComponent {
   static defaultProps = {
-    mood: 'default'
+    mood: "default",
   }
   render() {
     const { translation, navigation, mood } = this.props
@@ -27,21 +25,33 @@ class ViewAnimal extends PureComponent {
       hungry: "9e372a0e02554758b17263d6c36cd2cf",
     }
     return (
-
-
-      <Animatable.View style={{
-        position: 'relative',
-        backgroundColor: "#223249",
-        height: Dimensions.get('window').height,
-        width: Dimensions.get('window').width
-      }} cls="flx-i" easing="ease-out-quart" animation="fadeInUpBig" duration={650}>
-        <Animatable.View style={{
-          position: 'relative',
-        }} cls="flx-i" easing="ease-out-quart" animation="fadeInUp" duration={350} delay={1500}>
-        <WebView
-          source={{ html: `
+      <Animatable.View
+        style={{
+          position: "relative",
+          backgroundColor: "#223249",
+          height: Dimensions.get("window").height,
+          width: Dimensions.get("window").width,
+        }}
+        cls="flx-i"
+        easing="ease-out-quart"
+        animation="fadeInUpBig"
+        duration={650}
+      >
+        <Animatable.View
+          style={{
+            position: "relative",
+          }}
+          cls="flx-i"
+          easing="ease-out-quart"
+          animation="fadeInUp"
+          duration={350}
+          delay={1500}
+        >
+          <WebView
+            source={{
+              html: `
             <div id="hideControls" style="
-              width: ${Dimensions.get('window').width};
+              width: ${Dimensions.get("window").width};
               height: 70px;
               position: fixed;
               bottom: 0;
@@ -56,9 +66,9 @@ class ViewAnimal extends PureComponent {
               top: -50px;
               left: 0;
               overflow: hidden;
-              width: ${Dimensions.get('window').width};
+              width: ${Dimensions.get("window").width};
               pointer-events: none;
-              height: ${Dimensions.get('window').height + 130};
+              height: ${Dimensions.get("window").height + 130};
               display: block;"
               id="api-frame"
               frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true">
@@ -82,9 +92,10 @@ class ViewAnimal extends PureComponent {
                   }
               } )
               </script>
-          ` }}
-        />
-      </Animatable.View>
+          `,
+            }}
+          />
+        </Animatable.View>
       </Animatable.View>
     )
   }

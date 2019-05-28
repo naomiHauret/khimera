@@ -62,8 +62,9 @@ const symbiotes = {
             {
               date: Date.now(),
               uid: payload.mood,
-            }
-          ],        },
+            },
+          ],
+        },
       },
     }
   },
@@ -120,12 +121,12 @@ const symbiotes = {
         [payload.id]: {
           ...state.animals[payload.id],
           mood: [
-              ...state.animals[payload.id].mood,
-              {
-                date: Date.now(),
-                uid: payload.mood,
-              }
-            ],
+            ...state.animals[payload.id].mood,
+            {
+              date: Date.now(),
+              uid: payload.mood,
+            },
+          ],
         },
       },
     }

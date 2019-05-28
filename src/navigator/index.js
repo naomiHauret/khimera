@@ -50,7 +50,6 @@ const MainNavigator = FluidNavigator({
   },
 })
 
-
 const InitializationNavigator = createSwitchNavigator({
   Onboarding: {
     screen: OnboardingNavigator,

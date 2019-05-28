@@ -14,7 +14,12 @@ class ProfileHuman extends PureComponent {
   _checkInitializationStep = () => {
     const { checkInComplete, isHumanProfileAlreadyRegistered, navigation, animalAlreadyRegistered } = this.props
     const profile = navigation.getParam("id", "")
-    if (checkInComplete === false && isHumanProfileAlreadyRegistered === true && animalAlreadyRegistered === false && profile === "") {
+    if (
+      checkInComplete === false &&
+      isHumanProfileAlreadyRegistered === true &&
+      animalAlreadyRegistered === false &&
+      profile === ""
+    ) {
       navigation.navigate("ScreenFormProfileAnimal")
     }
   }
@@ -36,13 +41,13 @@ class ProfileHuman extends PureComponent {
 
     return (
       <Fragment>
-          <NavigationEvents
-            onWillFocus={(payload) => {
+        <NavigationEvents
+          onWillFocus={(payload) => {
             if (navigation.getParam("id", "") !== "") {
               this._editName(navigation.getParam("name", null))
               this._editPicture(navigation.getParam("picture", null))
-              }
-            }}
+            }
+          }}
           onWillBlur={() => {
             this._editName(null)
             this._editPicture(null)
@@ -83,7 +88,6 @@ class ProfileHuman extends PureComponent {
               this._editPicture(null)
               navigation.navigate("ScreenProfilesSaved")
             }
-
           }}
         />
       </Fragment>

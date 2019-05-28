@@ -10,7 +10,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch, props) => ({
   completeCheckIn: () => dispatch(InitializationActions.completeCheckIn()),
-
 })
 
 export default connect(

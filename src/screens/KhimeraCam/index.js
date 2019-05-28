@@ -1,8 +1,8 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React from "react"
+import { connect } from "react-redux"
 import { actions as ProfilesActions } from "store/symbiotes/Profiles"
 
-import Screen from './presentational'
+import Screen from "./presentational"
 
 const mapStateToProps = (state) => ({
   translation: state.translation,
@@ -11,10 +11,10 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch, props) => {
-  return ({
+  return {
     updateHumanMood: (payload) => dispatch(ProfilesActions.updateHumanMood(payload)),
     updateAnimalMood: (payload) => dispatch(ProfilesActions.updateAnimalMood(payload)),
-  })
+  }
 }
 
 export default connect(
