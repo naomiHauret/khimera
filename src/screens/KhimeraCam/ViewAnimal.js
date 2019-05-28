@@ -1,9 +1,10 @@
 import React, { PureComponent, Fragment } from "react"
-import { View, Dimensions } from 'react-native'
+import { View, WebView, Dimensions } from 'react-native'
 import { wrap } from "react-native-style-tachyons"
 import { t } from "utils/translation"
-import { WebView } from 'react-native'
 import PropTypes from 'prop-types'
+import * as Animatable from 'react-native-animatable'
+
 
 
 class ViewAnimal extends PureComponent {
@@ -26,9 +27,27 @@ class ViewAnimal extends PureComponent {
       hungry: "9e372a0e02554758b17263d6c36cd2cf",
     }
     return (
-      <View cls="flx-i" style={{position: 'relative'}}>
+
+
+      <Animatable.View style={{
+        position: 'relative',
+        backgroundColor: "#223249",
+        height: Dimensions.get('window').height,
+        width: Dimensions.get('window').width
+      }} cls="flx-i" easing="ease-out-quart" animation="fadeInUpBig" duration={650}>
+        <Animatable.View style={{
+          position: 'relative',
+        }} cls="flx-i" easing="ease-out-quart" animation="fadeInUp" duration={350} delay={1500}>
         <WebView
           source={{ html: `
+            <div id="hideControls" style="
+              width: ${Dimensions.get('window').width};
+              height: 70px;
+              position: fixed;
+              bottom: 0;
+              left: 0;
+              z-index: 5;
+            "></div>
             <iframe
               style="
               margin: 0;
@@ -36,6 +55,7 @@ class ViewAnimal extends PureComponent {
               position: absolute;
               top: -50px;
               left: 0;
+              overflow: hidden;
               width: ${Dimensions.get('window').width};
               pointer-events: none;
               height: ${Dimensions.get('window').height + 130};
@@ -51,20 +71,21 @@ class ViewAnimal extends PureComponent {
               const client = new Sketchfab( iframe )
 
               client.init( uid, {
-                  success: function onSuccess( api ){
+                  success:  ( api ) => {
                       api.start()
                       api.addEventListener( 'viewerready', () => {
+                          document.querySelector('#hideControls').style.backgroundImage = 'linear-gradient(to bottom, #223249, #1b2534)'
                           api.setFov(1.75)
                           api.setCycleMode('loopOne')
                           api.setCurrentAnimationByUID("${moodsAnimations[mood]}")
-
                       } )
                   }
               } )
               </script>
           ` }}
         />
-      </View>
+      </Animatable.View>
+      </Animatable.View>
     )
   }
 }

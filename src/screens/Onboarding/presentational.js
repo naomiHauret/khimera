@@ -9,8 +9,7 @@ import Button from "components/presentationals/Button"
 import { wrap } from "react-native-style-tachyons"
 import { t } from "utils/translation"
 import { Transition } from "react-navigation-fluid-transitions"
-import GestureRecognizer, { swipeDirections } from "react-native-swipe-gestures"
-import { NavigationEvents } from "react-navigation"
+import GestureRecognizer from "react-native-swipe-gestures"
 
 class Onboarding extends PureComponent {
   state = {

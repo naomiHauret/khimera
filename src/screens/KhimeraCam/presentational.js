@@ -3,23 +3,73 @@ import { wrap } from "react-native-style-tachyons"
 import { t } from "utils/translation"
 import { NavigationEvents } from "react-navigation"
 import ViewAnimal from './ViewAnimal'
-import { View } from 'react-native'
+import { View, Text, Dimensions } from 'react-native'
+import GestureRecognizer, { swipeDirections } from "react-native-swipe-gestures"
+import * as Animatable from 'react-native-animatable'
+import Swiper from 'react-native-swiper'
+import ScreenProfiles from 'screens/Profiles'
 
 class KhimeraCam extends PureComponent {
   state = {
-    currentView: "animal",
+    camView: "ANIMAL",
+    backgroundColor: "#223249"
   }
 
-  constructor(props) {
-    super(props)
+  // on up swipe gesture, go to profiles
+  _onSwipeDown(gestureState) {
+    this.props.navigation.navigate('ScreenProfiles')
   }
+
+  // on down swipe gesture, toggle between human and animal "cam"
+  _onSwipeUp(gestureState) {
+    this.setState({
+      camView: this.state.camView === 'ANIMAL' ? 'HUMAN' : 'ANIMAL'
+    })
+  }
+
 
   render() {
     const { translation, navigation } = this.props
+    const config = {
+      velocityThreshold: 0.3,
+      directionalOffsetThreshold: 80,
+    }
     return (
-      <View cls="flx-i">
-        <ViewAnimal />
-      </View>
+      <GestureRecognizer
+        onSwipeUp={(state) => this._onSwipeUp(state)}
+        onSwipeDown={(state) => this._onSwipeDown(state)}
+        config={config}
+        style={{
+          flex: 1,
+          backgroundColor: this.state.backgroundColor,
+          position: 'relative'
+        }}
+      >
+        <Swiper
+          cls="flx-i"
+          loop={false}
+          showsPagination={false}
+          index={1}>
+          <View cls="flx-i">
+            <Text>
+              left
+            </Text>
+          </View>
+          <Swiper
+            loop={false}
+            showsPagination={false}
+            index={1}>
+            <Animatable.View cls="flx-i" easing="ease-out-quart" animation="fadeInUpBig" duration={250} delay={1250}>
+              <ViewAnimal />
+            </Animatable.View>
+          </Swiper>
+          <View cls="flx-i">
+            <Text>
+              Right
+            </Text>
+          </View>
+        </Swiper>
+      </GestureRecognizer>
     )
   }
 }
