@@ -1,11 +1,11 @@
-import { createSymbiote } from 'redux-symbiote'
+import { createSymbiote } from "redux-symbiote"
 
 const initialState = {
   checkInComplete: false,
   permissionsGranted: false,
   internetConnection: false,
   showOnboarding: true,
-  paired: false
+  paired: false,
 }
 
 const symbiotes = {
@@ -39,4 +39,4 @@ const symbiotes = {
   }),
 }
 
-export const { actions, reducer: initializationReducer } = createSymbiote(initialState, symbiotes, 'app/initialization')
+export const { actions, reducer: initializationReducer } = createSymbiote(initialState, symbiotes, "app/initialization")

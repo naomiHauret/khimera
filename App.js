@@ -26,7 +26,7 @@ NativeTachyons.build({
   }
 }, StyleSheet)
 
-persistor.purge()
+// persistor.purge()
 
 export default wrap (
   class Khimera extends PureComponent {

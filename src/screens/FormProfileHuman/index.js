@@ -1,14 +1,16 @@
-import React from 'react'
-import { reduxForm } from 'redux-form'
-import { connect } from 'react-redux'
-import Screen from './presentational'
-import { actions as ProfilesActions } from 'store/symbiotes/Profiles'
-import { actions as FormsActions } from 'store/symbiotes/Forms'
+import React from "react"
+import { reduxForm } from "redux-form"
+import { connect } from "react-redux"
+import Screen from "./presentational"
+import { actions as ProfilesActions } from "store/symbiotes/Profiles"
+import { actions as FormsActions } from "store/symbiotes/Forms"
 
 const mapStateToProps = (state) => ({
   translation: state.translation,
   checkInComplete: state.initialization.checkInComplete,
   formData: state.forms.formHuman,
+  isHumanProfileAlreadyRegistered: Object.keys(state.profiles.humans).length >= 1,
+  animalAlreadyRegistered: Object.keys(state.profiles.animals).length >= 1,
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -24,6 +26,6 @@ const connected = connect(
   mapDispatchToProps,
 )(Screen)
 
-const formed = reduxForm({ form: 'profileHuman' })(connected)
+const formed = reduxForm({ form: "profileHuman" })(connected)
 
 export default formed

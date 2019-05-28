@@ -1,14 +1,14 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import Screen from './presentational'
-import { actions as InitializationActions } from 'store/symbiotes/Initialization'
+import React from "react"
+import { connect } from "react-redux"
+import Screen from "./presentational"
+import { actions as InitializationActions } from "store/symbiotes/Initialization"
 
 const mapStateToProps = (state) => ({
   translation: state.translation,
-  permissionsGranted: state.initialization.permissionsGranted
+  permissionsGranted: state.initialization.permissionsGranted,
 })
 
-const mapDispatchToProps = (dispatch, props) => ({ })
+const mapDispatchToProps = (dispatch, props) => ({})
 
 export default connect(
   mapStateToProps,

@@ -23,10 +23,10 @@ export default {
     sex: "Sexe",
     birthdayDate: "Date de naissance",
     orderKhimeraModel: "Commander le modèle",
-    welcome: 'Bienvenue sur KHIMERA !',
-    start: 'Commencer',
-    continue: 'Continuer',
-    readMore: 'Lire la suite',
+    welcome: "Bienvenue sur KHIMERA !",
+    start: "Commencer",
+    continue: "Continuer",
+    readMore: "Lire la suite",
   },
   behaviours: {
     love: "Amour",
@@ -44,11 +44,11 @@ export default {
     irritability: "Irritation",
     spite: "Rancune",
     tired: "Fatigué",
-    concern: 'Inquiétude',
-    hunger: 'Faim',
-    thirst: 'Soif',
+    concern: "Inquiétude",
+    hunger: "Faim",
+    thirst: "Soif",
     rested: "Reposé",
-    pride: 'Fierté',
+    pride: "Fierté",
     guilt: "Culpabilité",
     frustration: "Frustration",
     anxiety: "Anxiété",
@@ -65,7 +65,7 @@ export default {
     loneliness: "Solitude",
     hope: "Espoir",
     unsafe: "Insécurité",
-    horror: "Horreur"
+    horror: "Horreur",
   },
   steps: {
     1: "J'enregistre mon profil et celui de mon animal",
@@ -75,20 +75,23 @@ export default {
     5: "J'observe en temps réel l'humeur de mon animal et l'évolution de nos rapports",
   },
   messages: {
-    animalProfileRegistered: 'Le profil de %name% a bien été enregistré',
-    modelAnalysis: 'Analyse du modèle en cours ...',
-    modelDetected: 'Modèle %model% détécté, configuration en cours ...',
-    dataTransmissionToAvatar: "Transmission à l'avatar en cours..."
+    animalProfileRegistered: "Le profil de %name% a bien été enregistré",
+    modelAnalysis: "Analyse du modèle en cours ...",
+    modelDetected: "Modèle %model% détécté, configuration en cours ...",
+    dataTransmissionToAvatar: "Transmission à l'avatar en cours...",
   },
   screens: {
     about: {
       steps: {
-        num0: "Couplé au robot DECOY et au système BEAST LANG, l’application KHIMERA vous permet de communiquer sans barrière avec des animaux au quotidien.",
+        num0:
+          "Couplé au robot DECOY et au système BEAST LANG, l’application KHIMERA vous permet de communiquer sans barrière avec des animaux au quotidien.",
         num2: "Enregistrez vos gestes, paroles, grimaces... pour illustrer votre état d’esprit.",
         num1: "Renseignez les humains et animaux susceptibles de communiquer autour de vous.",
-        num3: "Grâce aux informations renseignées dans CHIMERA, l’AnimaEngine traduit vos paroles et comportements à l’animal et inversement.",
-        num4: "Apprenez à l’animal la langue humaine et aux humains la langue animale grâce au mode “Leçon quotidienne” de KHIMERA.",
-        num5: "Suivez en temps réel l’évolution de vos rapports et de vos liens avec l’animal."
+        num3:
+          "Grâce aux informations renseignées dans CHIMERA, l’AnimaEngine traduit vos paroles et comportements à l’animal et inversement.",
+        num4:
+          "Apprenez à l’animal la langue humaine et aux humains la langue animale grâce au mode “Leçon quotidienne” de KHIMERA.",
+        num5: "Suivez en temps réel l’évolution de vos rapports et de vos liens avec l’animal.",
       },
     },
   },

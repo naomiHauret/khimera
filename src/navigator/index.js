@@ -1,14 +1,15 @@
 import React from "react"
-import { createAppContainer, createStackNavigator, createSwitchNavigator } from 'react-navigation'
-import { FluidNavigator } from 'react-navigation-fluid-transitions'
-import ScreenAskPermissions from 'screens/AskPermissions'
-import ScreenOnboarding from 'screens/Onboarding'
-import ScreenPairing from 'screens/Pairing'
-import ScreenSuccessPermissions from 'screens/SuccessPermissions'
-import ScreenFormProfileAnimal from 'screens/FormProfileAnimal'
-import ScreenFormProfileHuman from 'screens/FormProfileHuman'
-import ScreenProfiles from 'screens/Profiles'
-import ScreenProfilesSaved from 'screens/ProfilesSaved'
+import { createAppContainer, createStackNavigator, createSwitchNavigator } from "react-navigation"
+import { FluidNavigator } from "react-navigation-fluid-transitions"
+import ScreenAskPermissions from "screens/AskPermissions"
+import ScreenOnboarding from "screens/Onboarding"
+import ScreenPairing from "screens/Pairing"
+import ScreenSuccessPermissions from "screens/SuccessPermissions"
+import ScreenFormProfileAnimal from "screens/FormProfileAnimal"
+import ScreenFormProfileHuman from "screens/FormProfileHuman"
+import ScreenProfiles from "screens/Profiles"
+import ScreenProfilesSaved from "screens/ProfilesSaved"
+import ScreenKhimeraCam from "screens/KhimeraCam"
 
 const OnboardingNavigator = FluidNavigator({
   ScreenPairing: {
@@ -30,19 +31,25 @@ const PermissionsNavigator = FluidNavigator({
 
 const ProfilesNavigator = FluidNavigator({
   ScreenProfiles: {
-    screen: ScreenProfiles
+    screen: ScreenProfiles,
   },
   ScreenFormProfileAnimal: {
-    screen: ScreenFormProfileAnimal
+    screen: ScreenFormProfileAnimal,
   },
   ScreenFormProfileHuman: {
-    screen: ScreenFormProfileHuman
+    screen: ScreenFormProfileHuman,
   },
   ScreenProfilesSaved: {
-    screen: ScreenProfilesSaved
+    screen: ScreenProfilesSaved,
   },
-
 })
+
+const MainNavigator = FluidNavigator({
+  ScreenKhimeraCam: {
+    screen: ScreenKhimeraCam,
+  },
+})
+
 
 const InitializationNavigator = createSwitchNavigator({
   Onboarding: {
@@ -53,11 +60,11 @@ const InitializationNavigator = createSwitchNavigator({
   },
 })
 
-
 const AppNavigator = createSwitchNavigator({
   Initialization: InitializationNavigator,
   Permissions: PermissionsNavigator,
   Profiles: ProfilesNavigator,
+  Main: MainNavigator,
 })
 
 export default (Navigator = createAppContainer(AppNavigator))

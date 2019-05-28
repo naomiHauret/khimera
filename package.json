@@ -4,7 +4,8 @@
     "start": "expo start -c",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "format": "npx prettier --parser=babel --write \"src/**/*.js\""
   },
   "lint-staged": {
     "src/**/*.{js,jsx}": [
@@ -23,6 +24,7 @@
     "react-native-customized-image-picker": "^0.1.5",
     "react-native-gesture-handler": "^1.1.0",
     "react-native-image-picker": "^0.28.1",
+    "react-native-render-html": "^4.1.2",
     "react-native-snap-carousel": "^3.7.5",
     "react-native-style-tachyons": "^4.0.0",
     "react-native-swipe-gestures": "^1.0.3",

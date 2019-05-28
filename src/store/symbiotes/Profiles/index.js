@@ -1,11 +1,11 @@
-import { createSymbiote } from 'redux-symbiote'
+import { createSymbiote } from "redux-symbiote"
 
 //
 // Handles humans & animals profiles
 
 const initialState = {
-  humans: { },
-  animals: { },
+  humans: {},
+  animals: {},
   currentAnimal: null,
   currentHuman: null,
 }
@@ -30,21 +30,41 @@ const symbiotes = {
         [payload.id]: {
           name: payload.name,
           picture: payload.picture,
-        }
-      }
+          mood: null,
+        },
+      },
     }
   },
-  // Update a human profile
+  // Update a human profile data
   updateHuman: (state, payload) => {
     return {
       ...state,
       humans: {
         ...state.humans,
         [payload.id]: {
+          ...state.humans[payload.id],
           name: payload.name,
           picture: payload.picture,
-        }
-      }
+        },
+      },
+    }
+  },
+  // Update a human mood
+  updateHumanMood: (state, payload) => {
+    return {
+      ...state,
+      humans: {
+        ...state.humans,
+        [payload.id]: {
+          ...state.humans[payload.id],
+          mood: [
+            ...state.humans[payload.id].mood,
+            {
+              date: Date.now(),
+              uid: payload.mood,
+            }
+          ],        },
+      },
     }
   },
   // Remove a human profile
@@ -69,24 +89,45 @@ const symbiotes = {
         ...state.animals,
         [payload.id]: {
           species: payload.species,
+          decoyModel: payload.decoyModel,
           name: payload.name,
           picture: payload.picture,
-        }
-      }
+          mood: null,
+        },
+      },
     }
   },
-  // Update an animal profile
+  // Update an animal profile data
   updateAnimal: (state, payload) => {
     return {
       ...state,
       animals: {
-        ...state.humans,
+        ...state.animals,
         [payload.id]: {
-          species: payload.species,
+          ...state.animals[payload.id],
           name: payload.name,
           picture: payload.picture,
-        }
-      }
+        },
+      },
+    }
+  },
+  // Update an animal mood
+  updateAnimalMood: (state, payload) => {
+    return {
+      ...state,
+      animals: {
+        ...state.animals,
+        [payload.id]: {
+          ...state.animals[payload.id],
+          mood: [
+              ...state.animals[payload.id].mood,
+              {
+                date: Date.now(),
+                uid: payload.mood,
+              }
+            ],
+        },
+      },
     }
   },
   // Remove an animal profile
@@ -105,5 +146,4 @@ const symbiotes = {
   },
 }
 
-
-export const { actions, reducer: profilesReducer } = createSymbiote(initialState, symbiotes, 'app/profiles')
+export const { actions, reducer: profilesReducer } = createSymbiote(initialState, symbiotes, "app/profiles")

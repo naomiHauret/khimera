@@ -1,4 +1,4 @@
-import * as TOKENS from 'utils/designSystem'
+import * as TOKENS from "utils/designSystem"
 
 export const colors = {
   white: TOKENS.COLOR_WHITE,
@@ -19,16 +19,16 @@ export const colors = {
 
 export const customStyles = {
   mta: {
-    marginTop: "auto"
+    marginTop: "auto",
   },
   mba: {
-    marginBottom: "auto"
+    marginBottom: "auto",
   },
   mla: {
-    marginLeft: "auto"
+    marginLeft: "auto",
   },
   mra: {
-    marginRight: "auto"
+    marginRight: "auto",
   },
   mxa: {
     marginLeft: "auto",
@@ -65,20 +65,19 @@ export const customStyles = {
   flxg0: {
     flexGrow: 0,
   },
-  'ff-bold': {
-    fontFamily: 'textBold',
+  "ff-bold": {
+    fontFamily: "textBold",
   },
-  'ff-italic': {
-    fontFamily: 'textItalic',
-
+  "ff-italic": {
+    fontFamily: "textItalic",
   },
-  'ff-regular': {
-    fontFamily: 'text',
+  "ff-regular": {
+    fontFamily: "text",
   },
-  'ff-logo': {
-    fontFamily: 'textLogo',
+  "ff-logo": {
+    fontFamily: "textLogo",
   },
-  'f7': {
+  f7: {
     fontSize: 12,
-  }
+  },
 }

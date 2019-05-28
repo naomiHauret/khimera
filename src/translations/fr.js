@@ -18,7 +18,11 @@ export default {
   placeholders: {
     name: "Nom",
   },
+  species: {
+    dog: "Chien",
+  },
   labels: {
+    back: "Retour",
     doYouReallyWantToDeleteThisProfile: "Voulez-vous vraiment supprimer le profil de %name% ?",
     goPremiumToAddNewAnimal: "Pour ajouter un nouveau profil d'animal à ce modèle, veuillez passez au plan premium.",
     yesDelete: "Oui, supprimer",
@@ -29,20 +33,21 @@ export default {
     humansProfilesSaved: "Profils humains sauvegardés",
     animalsProfilesSaved: "Profils animaux sauvegardés",
     orderKhimeraModel: "Commander le modèle",
-    welcome: 'Bienvenue sur KHIMERA !',
-    start: 'Démarrer',
-    continue: 'Continuer',
-    readMore: 'Lire la suite',
-    understand: 'Je comprends',
-    discoverApp: 'Découvrir l\'app',
-    skip: 'Passer',
-    previous: 'Précédent',
-    save: 'Enregistrer',
-    saveProfile: 'Sauvegarder le profil de %name%',
-    takePicture: 'Prendre sa photo',
+    welcome: "Bienvenue sur KHIMERA !",
+    saveAndFinish: "Sauvegarder les profils et terminer",
+    start: "Démarrer",
+    continue: "Continuer",
+    readMore: "Lire la suite",
+    understand: "Je comprends",
+    discoverApp: "Découvrir l'app",
+    skip: "Passer",
+    previous: "Précédent",
+    save: "Enregistrer",
+    saveProfile: "Sauvegarder le profil de %name%",
+    takePicture: "Prendre sa photo",
     humanProfileName: "Profil humain",
     yourAnimalProfile: {
-      dog: "Profil de mon chien"
+      dog: "Profil de mon chien",
     },
     goPremium: "Passer premium",
   },
@@ -62,11 +67,11 @@ export default {
     irritability: "Irritation",
     spite: "Rancune",
     tired: "Fatigué",
-    concern: 'Inquiétude',
-    hunger: 'Faim',
-    thirst: 'Soif',
+    concern: "Inquiétude",
+    hunger: "Faim",
+    thirst: "Soif",
     rested: "Reposé",
-    pride: 'Fierté',
+    pride: "Fierté",
     guilt: "Culpabilité",
     frustration: "Frustration",
     anxiety: "Anxiété",
@@ -83,24 +88,28 @@ export default {
     loneliness: "Solitude",
     hope: "Espoir",
     unsafe: "Insécurité",
-    horror: "Horreur"
+    horror: "Horreur",
   },
   screens: {
     pairing: {
-      title: "Appairage DECOY modèle 3ZCYUI - Dog  avec KHIMERA en cours ...",
-      text: "Nous vous remercions pour votre achat !Ce modèle DECOY a été spécifiquement conçu pour communiquer clairement et instantanément avec les chiens.",
+      title: "Appairage DECOY modèle KYUFORALL-Dog  avec KHIMERA en cours ...",
+      text:
+        "Nous vous remercions pour votre achat ! Ce modèle DECOY a été spécifiquement conçu pour communiquer clairement et instantanément avec les chiens.",
     },
     askPermissions: {
       title: "Avant de démarrer...",
-      text: "Pour fonctionner, KHIMERA a besoin de votre permission pour vous envoyer des notifications et pour accéder aux photos, au micro à la caméra de votre appareil.",
+      text:
+        "Pour fonctionner, KHIMERA a besoin de votre permission pour vous envoyer des notifications et pour accéder aux photos, au micro à la caméra de votre appareil.",
     },
     successPermissions: {
       title: "Merci !",
-      text: "Vous pouvez maintenant remplir les profils des humains et chiens de votre entourage que votre DECOY doit aider à communiquer.",
+      text:
+        "Vous pouvez maintenant remplir les profils des humains et chiens de votre entourage que votre DECOY doit aider à communiquer.",
     },
     onboarding: {
-      welcome: 'Bienvenue sur KHIMERA, l’application compagnon officielle des robots DECOY !',
-      wantToOnboard: 'Il semble que ce soit votre première utilisation de KHIMERA sur cet appareil. Désirez-vous découvrir le fonctionnement de KHIMERA avant de commencer ?',
+      welcome: "Bienvenue sur KHIMERA, l’application compagnon officielle des robots DECOY !",
+      wantToOnboard:
+        "Il semble que ce soit votre première utilisation de KHIMERA sur cet appareil. Désirez-vous découvrir le fonctionnement de KHIMERA avant de commencer ?",
       steps: {
         num0: "Je remplis le profil des humains et animaux suceptibles de communiquer autour de moi.",
         num1: "J’enregistre un geste, une phrase, une grimace... auquel j’ajoute mon humeur.",
@@ -111,11 +120,11 @@ export default {
       },
     },
     profiles: {
-      longClicktoAction: 'Pour modifier ou supprimer un profil, appuyez longuement sur celui-ci.',
+      longClicktoAction: "Pour modifier ou supprimer un profil, appuyez longuement sur celui-ci.",
     },
     profilesSaved: {
       title: "Les profils ont bien été enregistrés.",
-      text: "KHIMERA procède à l’échange d’information avec DECOY, merci de patientez quelques instants ..."
-    }
+      text: "KHIMERA procède à l’échange d’information avec DECOY, merci de patientez quelques instants ...",
+    },
   },
 }
