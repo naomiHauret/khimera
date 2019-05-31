@@ -80,4 +80,7 @@ export const customStyles = {
   f7: {
     fontSize: 12,
   },
+  f8: {
+    fontSize: 10,
+  }
 }

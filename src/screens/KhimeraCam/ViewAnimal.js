@@ -4,10 +4,15 @@ import { wrap } from "react-native-style-tachyons"
 import { t } from "utils/translation"
 import PropTypes from "prop-types"
 import * as Animatable from "react-native-animatable"
+import Text from 'components/presentationals/Text'
+import { DateTime } from "luxon"
 
 class ViewAnimal extends PureComponent {
   static defaultProps = {
-    mood: "default",
+    mood: {
+      uid: "default",
+      date: "--",
+    },
   }
   render() {
     const { translation, navigation, mood } = this.props
@@ -24,6 +29,7 @@ class ViewAnimal extends PureComponent {
       calm: "9d3d7d7a393a48d6a6a6e88f2ae18079",
       hungry: "9e372a0e02554758b17263d6c36cd2cf",
     }
+
     return (
       <Animatable.View
         style={{
@@ -47,6 +53,17 @@ class ViewAnimal extends PureComponent {
           duration={350}
           delay={1500}
         >
+          <Animatable.View animation="fadeIn" delay={2250} style={{ top: 135, elevation: 2 }} cls="absolute jcc aic w100vw">
+            <Text type="bold" additionalStyles="flxs1 flxg0 white f6">
+              {t(`behaviours.${mood.uid}`, translation)}
+            </Text>
+            <Animatable.View animation="fadeIn" delay={2950} cls="mt2">
+              <Text type="italic" additionalStyles="flxs1 flxg0 white f7">
+                {t("labels.lastUpdate", translation, {
+                  date: DateTime.fromISO(mood.date).setLocale(translation.locale).toFormat("f")})}
+              </Text>
+            </Animatable.View>
+          </Animatable.View>
           <WebView
             source={{
               html: `
@@ -67,7 +84,6 @@ class ViewAnimal extends PureComponent {
               left: 0;
               overflow: hidden;
               width: ${Dimensions.get("window").width};
-              pointer-events: none;
               height: ${Dimensions.get("window").height + 130};
               display: block;"
               id="api-frame"
@@ -87,7 +103,7 @@ class ViewAnimal extends PureComponent {
                           document.querySelector('#hideControls').style.backgroundImage = 'linear-gradient(to bottom, #223249, #1b2534)'
                           api.setFov(1.75)
                           api.setCycleMode('loopOne')
-                          api.setCurrentAnimationByUID("${moodsAnimations[mood]}")
+                          api.setCurrentAnimationByUID("${moodsAnimations[mood.uid]}")
                       } )
                   }
               } )

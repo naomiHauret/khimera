@@ -1,4 +1,5 @@
 import { createSymbiote } from "redux-symbiote"
+import { DateTime } from "luxon"
 
 //
 // Handles humans & animals profiles
@@ -30,7 +31,12 @@ const symbiotes = {
         [payload.id]: {
           name: payload.name,
           picture: payload.picture,
-          mood: null,
+          mood: [
+            {
+              uid: 'default',
+              date: DateTime.local(),
+            }
+          ],
         },
       },
     }
@@ -60,7 +66,7 @@ const symbiotes = {
           mood: [
             ...state.humans[payload.id].mood,
             {
-              date: Date.now(),
+              date: DateTime.local(),
               uid: payload.mood,
             },
           ],
@@ -93,7 +99,12 @@ const symbiotes = {
           decoyModel: payload.decoyModel,
           name: payload.name,
           picture: payload.picture,
-          mood: null,
+          mood: [
+            {
+              uid: 'default',
+              date: DateTime.local(),
+            }
+          ],
         },
       },
     }
@@ -123,7 +134,7 @@ const symbiotes = {
           mood: [
             ...state.animals[payload.id].mood,
             {
-              date: Date.now(),
+              date: DateTime.local(),
               uid: payload.mood,
             },
           ],
