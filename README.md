@@ -31,6 +31,7 @@ Khimera is one of the fiction app I made for my end-year project : a design fict
 * Android phone, version > 7
 
 ### Install
+On your phone, install the [Expo app](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=fr).
 In your terminal, run `npm install`.
 Once it's done, type `npm start` in your terminal.
 Grab your phone, flash the QR Code and that's it, Khimera is alive on your phone !

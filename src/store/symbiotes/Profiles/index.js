@@ -33,9 +33,9 @@ const symbiotes = {
           picture: payload.picture,
           mood: [
             {
-              uid: 'default',
+              uid: "default",
               date: DateTime.local(),
-            }
+            },
           ],
         },
       },
@@ -101,9 +101,9 @@ const symbiotes = {
           picture: payload.picture,
           mood: [
             {
-              uid: 'default',
+              uid: "default",
               date: DateTime.local(),
-            }
+            },
           ],
         },
       },

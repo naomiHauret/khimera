@@ -19,27 +19,31 @@ import {
 } from "react-native"
 import { Camera, Video } from "expo"
 import { AntDesign, Entypo, MaterialIcons, FontAwesome } from "@expo/vector-icons"
-import Emoji from 'react-native-emoji'
+import Emoji from "react-native-emoji"
 import * as Animatable from "react-native-animatable"
-import { emotions } from 'utils/emotions'
+import { emotions } from "utils/emotions"
+import delay from "delay"
 
 class ViewHuman extends PureComponent {
   state = {
     moodEvent: null,
     recording: false,
     duration: 0,
+    canPlayPickerAnimation: false,
     emotionPickerVisible: false,
+    pickedMood: null,
   }
 
-  _toggleEmotionPicker = () => {
-    console.log("SHE")
+  _showEmotionPicker = () =>
     this.setState({
-    emotionPickerVisible: !this.state.emotionPickerVisible
-  })
-}
-  _goToNextStep = () =>
+      canPlayPickerAnimation: true,
+      emotionPickerVisible: true,
+    })
+
+  _toggleEmotionPicker = () =>
     this.setState({
-      currentStep: this.state.currentStep + 1,
+      canPlayPickerAnimation: true,
+      emotionPickerVisible: !this.state.emotionPickerVisible,
     })
 
   _takePicture = async () => {
@@ -48,11 +52,12 @@ class ViewHuman extends PureComponent {
       this.camera.takePictureAsync().then((data) => {
         this.setState({
           moodEvent: {
-            type: 'picture',
-            content: data.uri
+            type: "picture",
+            content: data.uri,
           },
         })
         Vibration.vibrate()
+        this.state.pickedMood === null && this._showEmotionPicker()
       })
     }
   }
@@ -61,10 +66,6 @@ class ViewHuman extends PureComponent {
     const { recording, duration } = this.state
     if (recording) {
       await delay(1000)
-      this.setState(state => ({
-        ...state,
-        duration: state.duration + 1
-      }));
       this._registerRecord()
     }
   }
@@ -73,14 +74,16 @@ class ViewHuman extends PureComponent {
     if (!this.camera) {
       return
     }
-    await this.setState(state => ({ ...state, recording: true }))
+    this.props.disableButtons()
+    Vibration.vibrate()
+    await this.setState({ recording: true })
     this._registerRecord()
     const record = await this.camera.recordAsync()
     this.setState({
       moodEvent: {
-        type: 'video',
-        content: record.uri
-      }
+        type: "video",
+        content: record.uri,
+      },
     })
   }
 
@@ -90,8 +93,10 @@ class ViewHuman extends PureComponent {
     }
 
     await this.camera.stopRecording()
-    this.setState(state => ({ ...state, recording: false, duration: 0 }))
     Vibration.vibrate()
+    this.props.enableButtons()
+    this.state.pickedMood === null && this._showEmotionPicker()
+    this.setState({ recording: false })
   }
 
   _toggleRecording = () => {
@@ -105,64 +110,77 @@ class ViewHuman extends PureComponent {
     })
   }
 
+  _pickMood = (value) => {
+    this.setState({
+      emotionPickerVisible: false,
+      pickedMood: value,
+    })
+  }
+
   render() {
     const { translation, onSubmit, navigation } = this.props
-    const { moodEvent } = this.state
-
-    return <View cls="flx-i" style={{ position: "relative" }}>
-      {moodEvent ? <Fragment>
-        {moodEvent.type === 'picture' ? <Image
-          cls="absolute"
-          style={{
-            top: 0,
-            left: 0,
-            width: Dimensions.get("window").width,
-            height: Dimensions.get("window").height,
-          }}
-          source={{ uri: moodEvent.content }}
-        /> : <Video
-            shouldPlay={true}
-            isLooping={true}
-            rate={1.0}
-            volume={1.0}
-            source={{
-              uri: moodEvent.content
-            }}
-            cls="absolute"
-            style={{
-              top: 0,
-              left: 0,
-              width: Dimensions.get("window").width,
-              height: Dimensions.get("window").height,
-            }}
-            isPortrait={true}
-          />
-        }
-        <View
-          cls="absolute aic jcc"
-          style={{
-            left: 0,
-            bottom: 120,
-            width: Dimensions.get("window").width,
-          }}
-        >
-          <View cls="flxdr pa2 br5 bg-white" style={{ elevation: 5 }}>
-            <TouchableOpacity
-              onPress={() => {
-                console.log("pouf")
-              }}
-            >
-              <FontAwesome name="paper-plane-o" cls="blue mr5" size={25} />
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={this._removeMood}
-            >
-              <MaterialIcons name="close" size={25} cls="grey-100" />
-            </TouchableOpacity>
-          </View>
-        </View>
+    const { moodEvent, recording, canPlayPickerAnimation, pickedMood, emotionPickerVisible } = this.state
+    return (
+      <View cls="flx-i" style={{ position: "relative" }}>
+        {moodEvent ? (
+          <Fragment>
+            {moodEvent.type === "picture" ? (
+              <Image
+                cls="absolute"
+                style={{
+                  top: 0,
+                  left: 0,
+                  width: Dimensions.get("window").width,
+                  height: Dimensions.get("window").height,
+                }}
+                source={{ uri: moodEvent.content }}
+              />
+            ) : (
+              <Video
+                shouldPlay={true}
+                resizeMode="cover"
+                isLooping={true}
+                rate={1.0}
+                volume={1.0}
+                source={{
+                  uri: moodEvent.content,
+                }}
+                cls="absolute"
+                style={{
+                  top: 0,
+                  left: 0,
+                  width: Dimensions.get("window").width,
+                  height: Dimensions.get("window").height,
+                }}
+                isPortrait={true}
+              />
+            )}
+            {pickedMood && (
+              <View
+                cls="absolute aic jcc"
+                style={{
+                  left: 0,
+                  bottom: 120,
+                  width: Dimensions.get("window").width,
+                }}
+              >
+                <View cls="flxdr pa2 br5 bg-white aic" style={{ elevation: 5 }}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      console.log("pouf")
+                    }}
+                  >
+                    <FontAwesome name="paper-plane-o" cls="blue mr3" size={25} />
+                  </TouchableOpacity>
+                  <Text additionalStyles="grey-100 mr3">{t("labels.or", translation)}</Text>
+                  <TouchableOpacity onPress={this._removeMood}>
+                    <MaterialIcons name="close" size={25} cls="grey-100" />
+                  </TouchableOpacity>
+                </View>
+              </View>
+            )}
           </Fragment>
-          : (
+        ) : (
           <Fragment>
             <Camera
               ref={(camera) => (this.camera = camera)}
@@ -177,20 +195,29 @@ class ViewHuman extends PureComponent {
                 height: Dimensions.get("window").height,
               }}
             />
-            <TouchableOpacity style={{
-              bottom: 0,
-              left: 0,
-              width: Dimensions.get("window").width,
-              height: Dimensions.get("window").height,
-            }} cls="absolute" onPress={this._toggleEmotionPicker}>
+            <TouchableOpacity
+              style={{
+                bottom: 0,
+                left: 0,
+                width: Dimensions.get("window").width,
+                height: Dimensions.get("window").height,
+              }}
+              cls="absolute"
+              onPress={this._toggleEmotionPicker}
+            >
               <Fragment />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={this._takePicture}
-              onLongPress={this._startRecording}
+              onPress={() => {
+                recording === true ? this._stopRecording() : this._takePicture()
+              }}
+              onLongPress={this._toggleRecording}
+              animation="fadeIn"
+              iterationCount={recording === true ? "infinite" : 1}
+              direction={recording === true ? "alternate-reverse" : "normal"}
               cls="absolute br5 bg-transparent"
               style={{
-                bottom: 40,
+                bottom: 80,
                 left: Dimensions.get("window").width / 2 - 40,
                 width: 80,
                 height: 80,
@@ -198,40 +225,110 @@ class ViewHuman extends PureComponent {
               }}
             >
               <Entypo name="circle" size={80} cls="white" />
+              {recording === true && (
+                <Animatable.View animation="fadeIn" iterationCount="infinite" direction="alternate-reverse">
+                  <FontAwesome style={{ top: -63, left: 23 }} cls="absolute" name="circle" size={40} cls="red" />
+                </Animatable.View>
+              )}
             </TouchableOpacity>
-            <Animatable.View cls="absolute" style={{
-              top: Dimensions.get("window").height / 2 + 60,
+          </Fragment>
+        )}
+        {canPlayPickerAnimation && (
+          <Animatable.View
+            cls="absolute"
+            style={{
+              bottom: 180,
               width: Dimensions.get("window").width,
               left: 0,
-            }} animation={this.state.emotionPickerVisible === true ? "bounceIn" : "bounceOut"}>
-              <ScrollView scrollEnabled={false}>
-                <ScrollView horizontal>
-                  <TouchableWithoutFeedback>
-                    <FlatList horizontal={true}
-                      data={emotions}
-                      renderItem={({ item }) => <TouchableOpacity style={{
-                        elevation: 25,
-                        flexDirection: 'row',
-                        backgroundColor: 'white',
-                        borderRadius: 9999,
-                        paddingVertical: 5,
-                        paddingHorizontal: 10,
-                        marginHorizontal: 10,
-                      }}>
+            }}
+            animation={emotionPickerVisible ? "bounceIn" : "bounceOut"}
+          >
+            <ScrollView scrollEnabled={false}>
+              <ScrollView horizontal>
+                <TouchableWithoutFeedback>
+                  <FlatList
+                    horizontal={true}
+                    data={emotions}
+                    renderItem={({ item }) => (
+                      <TouchableOpacity
+                        key={item.uid}
+                        onPress={() => this._pickMood(item)}
+                        style={{
+                          elevation: 25,
+                          flexDirection: "row",
+                          backgroundColor: "white",
+                          borderRadius: 9999,
+                          paddingVertical: 5,
+                          paddingHorizontal: 10,
+                          marginHorizontal: 10,
+                        }}
+                      >
                         <Text type="bold" additionalStyles="f7 blue mr2">
                           {t(`behaviours.${item.uid}`, translation)}
                         </Text>
                         <Emoji name={item.emoji} style={{ fontSize: 12 }} />
-                      </TouchableOpacity>}
-                    />
+                      </TouchableOpacity>
+                    )}
+                  />
                 </TouchableWithoutFeedback>
-                </ScrollView>
               </ScrollView>
-            </Animatable.View>
-          </Fragment>
+            </ScrollView>
+          </Animatable.View>
         )}
-
-    </View>
+        {pickedMood && moodEvent === null && (
+          <Animatable.View
+            cls="absolute aic jcc"
+            style={{
+              bottom: 70,
+              right: 10,
+            }}
+            animation={"bounceIn"}
+          >
+            <TouchableOpacity
+              onPress={() => this._toggleEmotionPicker()}
+              cls="jcc bg-yellow-200 aic br5"
+              style={{
+                elevation: 15,
+                width: 60,
+                height: 60,
+              }}
+            >
+              <FontAwesome name="paper-plane-o" cls="yellow-500 mr1" size={30} />
+            </TouchableOpacity>
+          </Animatable.View>
+        )}
+        {pickedMood && (
+          <Animatable.View
+            delay={550}
+            cls="absolute aic jcc"
+            style={{
+              bottom: 220,
+              width: Dimensions.get("window").width,
+              left: 0,
+            }}
+            animation={"bounceIn"}
+          >
+            <TouchableOpacity
+              onPress={() => this._toggleEmotionPicker()}
+              cls="jcc bg-white aic"
+              style={{
+                flexDirection: "row",
+                borderRadius: 9999,
+                paddingVertical: 5,
+                paddingHorizontal: 15,
+                flexGrow: 0,
+                flexShrink: 1,
+              }}
+            >
+              <Text type="bold" additionalStyles="f5 blue mr2">
+                {t(`behaviours.${pickedMood.uid}`, translation)}
+              </Text>
+              <Emoji name={pickedMood.emoji} style={{ fontSize: 16 }} />
+            </TouchableOpacity>
+          </Animatable.View>
+        )}
+      </View>
+    )
   }
 }
 export default wrap(ViewHuman)

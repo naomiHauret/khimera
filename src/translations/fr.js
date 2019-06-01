@@ -10,7 +10,8 @@ export default {
     dog: "Chien",
   },
   labels: {
-    lastUpdate: 'Dernière mise à jour: %date%',
+    or: "ou",
+    lastUpdate: "Dernière mise à jour: %date%",
     back: "Retour",
     doYouReallyWantToDeleteThisProfile: "Voulez-vous vraiment supprimer le profil de %name% ?",
     goPremiumToAddNewAnimal: "Pour ajouter un nouveau profil d'animal à ce modèle, veuillez passez au plan premium.",
@@ -40,7 +41,7 @@ export default {
     goPremium: "Passer premium",
   },
   behaviours: {
-    default: 'Rien de spécial',
+    default: "Rien de spécial",
     love: "Amour",
     joy: "Joie",
     anger: "Colère",

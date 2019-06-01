@@ -50,7 +50,11 @@ class Profiles extends PureComponent {
     const humansList = Object.keys(humans)
     const animalsList = Object.keys(animals)
     return (
-      <Animatable.View cls="flx-i" easing='ease-out-circ' animation={isCheckInCompleted ? "slideInDown" : "fadeInRight"}>
+      <Animatable.View
+        cls="flx-i"
+        easing="ease-out-circ"
+        animation={isCheckInCompleted ? "slideInDown" : "fadeInRight"}
+      >
         <TouchableOpacity activeOpacity={1} cls="flx-i" onPress={() => this._setSelected(null)}>
           <Frame theme="clear">
             <Text type="italic" additionalStyles="grey-200 tac">
@@ -276,9 +280,14 @@ class Profiles extends PureComponent {
                           onPress={() =>
                             Alert.alert(
                               t("labels.deleteProfile", translation),
-                              t("labels.doYouReallyWantToDeleteThisProfile", translation, { name: animals[animal].name }),
+                              t("labels.doYouReallyWantToDeleteThisProfile", translation, {
+                                name: animals[animal].name,
+                              }),
                               [
-                                { text: t("labels.yesDelete", translation), onPress: () => removeAnimalProfile(animal) },
+                                {
+                                  text: t("labels.yesDelete", translation),
+                                  onPress: () => removeAnimalProfile(animal),
+                                },
                                 {
                                   text: t("labels.cancel", translation),
                                   style: "cancel",

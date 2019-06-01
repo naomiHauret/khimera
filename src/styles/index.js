@@ -82,5 +82,5 @@ export const customStyles = {
   },
   f8: {
     fontSize: 10,
-  }
+  },
 }

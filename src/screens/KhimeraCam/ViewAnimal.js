@@ -4,7 +4,7 @@ import { wrap } from "react-native-style-tachyons"
 import { t } from "utils/translation"
 import PropTypes from "prop-types"
 import * as Animatable from "react-native-animatable"
-import Text from 'components/presentationals/Text'
+import Text from "components/presentationals/Text"
 import { DateTime } from "luxon"
 
 class ViewAnimal extends PureComponent {
@@ -53,14 +53,22 @@ class ViewAnimal extends PureComponent {
           duration={350}
           delay={1500}
         >
-          <Animatable.View animation="fadeIn" delay={2250} style={{ top: 135, elevation: 2 }} cls="absolute jcc aic w100vw">
+          <Animatable.View
+            animation="fadeIn"
+            delay={2250}
+            style={{ top: 135, elevation: 2 }}
+            cls="absolute jcc aic w100vw"
+          >
             <Text type="bold" additionalStyles="flxs1 flxg0 white f6">
               {t(`behaviours.${mood.uid}`, translation)}
             </Text>
             <Animatable.View animation="fadeIn" delay={2950} cls="mt2">
               <Text type="italic" additionalStyles="flxs1 flxg0 white f7">
                 {t("labels.lastUpdate", translation, {
-                  date: DateTime.fromISO(mood.date).setLocale(translation.locale).toFormat("f")})}
+                  date: DateTime.fromISO(mood.date)
+                    .setLocale(translation.locale)
+                    .toFormat("f"),
+                })}
               </Text>
             </Animatable.View>
           </Animatable.View>
