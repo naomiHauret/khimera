@@ -117,4 +117,9 @@ export default {
       text: "KHIMERA procède à l’échange d’information avec DECOY, merci de patientez quelques instants ...",
     },
   },
+  messages: {
+    noInternetConnection: "Aucune connexion internet",
+    khimeraToDecoy: 'Khimera a bien transmis votre message à DECOY !',
+    decoyToAnimal: 'DECOY a bien transmis votre message à %animalName% !'
+  }
 }

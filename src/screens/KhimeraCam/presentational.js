@@ -14,7 +14,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons"
 
 class KhimeraCam extends PureComponent {
   state = {
-    camView: "HUMAN",
+    camView: "ANIMAL",
     backgroundColor: "#223249",
     canSwitchView: true,
   }
@@ -36,7 +36,7 @@ class KhimeraCam extends PureComponent {
   _onSwipeUp = (gestureState) => this.state.canSwitchView && this._toggleMode()
 
   render() {
-    const { translation, navigation, currentAnimal, currentHuman, updateHumanMood, updateAnimalMood } = this.props
+    const { addToast, translation, navigation, currentAnimal, currentHuman, updateHumanMood, updateAnimalMood } = this.props
     const { canSwitchView } = this.state
     const config = {
       velocityThreshold: 0.3,
@@ -45,7 +45,6 @@ class KhimeraCam extends PureComponent {
     const profile = {
       ...(this.state.camView === "ANIMAL" ? currentAnimal : currentHuman),
     }
-
     return (
       <GestureRecognizer
         onSwipeUp={(state) => this._onSwipeUp(state)}
@@ -82,6 +81,22 @@ class KhimeraCam extends PureComponent {
                   enableButtons={() => this._toggleSwitchView(true)}
                   mood={profile.mood[profile.mood.length - 1]}
                   translation={translation}
+                  sendMood={(mood) => {
+                    setTimeout(() => {
+                      addToast({
+                        id: Date.now(),
+                        text: t("messages.khimeraToDecoy", translation)
+                      })
+                    }, 800)
+                    updateHumanMood({mood, id: profile.id})
+                    setTimeout(() => {
+                      addToast({
+                        id: Date.now(),
+                        text: t("messages.decoyToAnimal", translation, { animalName: currentAnimal.name })
+                      })
+                    }, 3300)
+                  }
+                  }
                 />
               </Animatable.View>
             )}

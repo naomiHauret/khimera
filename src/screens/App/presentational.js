@@ -10,13 +10,25 @@ import AppNavigator from "components/wired/AppNavigator"
 export default wrap(
   class App extends PureComponent {
     render() {
-      const { checkInComplete, toastrs, permissionsGiven } = this.props
+      const { checkInComplete, toastrs, removeToast, permissionsGiven } = this.props
       return (
         <View style={{ paddingTop: Platform.OS === "ios" ? 20 : StatusBar.currentHeight }} cls={`flx-i`}>
           <StatusBar hidden={false} />
           <Animatable.View animation="slideInDown">
             <MessageOffline />
           </Animatable.View>
+          {toastrs.map((toastr, index) => (
+            <Message
+              animationEnter="slideInDown"
+              animationExit="slideOutUp"
+              key={toastr.id}
+              theme="info"
+              closable={true}
+              onClose={() => removeToast(toastr.id)}
+            >
+              {toastr.text}
+            </Message>
+          ))}
           <AppNavigator />
         </View>
       )

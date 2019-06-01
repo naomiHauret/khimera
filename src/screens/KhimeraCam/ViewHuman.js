@@ -117,6 +117,13 @@ class ViewHuman extends PureComponent {
     })
   }
 
+  _updateMood = (mood) => {
+
+    this.props.sendMood(mood.uid)
+    this._removeMood()
+    this._pickMood(null)
+  }
+
   render() {
     const { translation, onSubmit, navigation } = this.props
     const { moodEvent, recording, canPlayPickerAnimation, pickedMood, emotionPickerVisible } = this.state
@@ -167,7 +174,7 @@ class ViewHuman extends PureComponent {
                 <View cls="flxdr pa2 br5 bg-white aic" style={{ elevation: 5 }}>
                   <TouchableOpacity
                     onPress={() => {
-                      console.log("pouf")
+                      this._updateMood(pickedMood)
                     }}
                   >
                     <FontAwesome name="paper-plane-o" cls="blue mr3" size={25} />
@@ -285,7 +292,7 @@ class ViewHuman extends PureComponent {
             animation={"bounceIn"}
           >
             <TouchableOpacity
-              onPress={() => this._toggleEmotionPicker()}
+              onPress={() => this._updateMood(pickedMood)}
               cls="jcc bg-yellow-200 aic br5"
               style={{
                 elevation: 15,

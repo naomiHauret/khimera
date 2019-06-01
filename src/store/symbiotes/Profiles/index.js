@@ -1,6 +1,6 @@
 import { createSymbiote } from "redux-symbiote"
 import { DateTime } from "luxon"
-
+import { addEmotion } from 'services/emotions'
 //
 // Handles humans & animals profiles
 
@@ -57,6 +57,7 @@ const symbiotes = {
   },
   // Update a human mood
   updateHumanMood: (state, payload) => {
+    addEmotion(payload.mood)
     return {
       ...state,
       humans: {
