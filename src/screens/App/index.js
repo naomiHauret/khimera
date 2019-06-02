@@ -13,7 +13,7 @@ const mapStateToProps = (state) => ({
   paired: state.initialization.paired,
   currentAnimal: {
     id: state.profiles.currentAnimal,
-    ...state.profiles.animals[state.profiles.currentAnimal]
+    ...state.profiles.animals[state.profiles.currentAnimal],
   },
 })
 

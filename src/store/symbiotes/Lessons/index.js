@@ -1,5 +1,5 @@
 import { createSymbiote } from "redux-symbiote"
-import { addLesson } from 'services/lessons'
+import { addLesson } from "services/lessons"
 
 const initialState = {
   freeLessonTaken: null,
@@ -9,10 +9,10 @@ const symbiotes = {
   // set free lesson
   takeFreeLesson: (state, payload) => {
     addLesson(payload)
-    return ({
+    return {
       ...state,
       freeLessonTaken: payload,
-    })
+    }
   },
 }
 

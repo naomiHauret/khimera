@@ -118,7 +118,6 @@ class ViewHuman extends PureComponent {
   }
 
   _updateMood = (mood) => {
-
     this.props.sendMood(mood.uid)
     this._removeMood()
     this._pickMood(null)

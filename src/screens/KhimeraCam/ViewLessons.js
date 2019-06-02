@@ -10,12 +10,11 @@ import Paragraph from "components/presentationals/Paragraph"
 import { DateTime } from "luxon"
 import Swiper from "react-native-swiper"
 import { BlurView } from "expo"
-import Button from 'components/presentationals/Button'
-import {lessons} from 'utils/lessons'
+import Button from "components/presentationals/Button"
+import { lessons } from "utils/lessons"
 import { FontAwesome, MaterialCommunityIcons } from "@expo/vector-icons"
 
 class ViewLessons extends PureComponent {
-
   render() {
     const { translation, navigation, animalName, freeLessonTaken, takeFreeLesson } = this.props
 
@@ -89,50 +88,62 @@ class ViewLessons extends PureComponent {
           `,
             }}
           />
-          <View cls="absolute" style={{
-            bottom: 60,
-            left: 0,
-            elevation: 15,
-            width: Dimensions.get('window').width,
-            minHeight: Dimensions.get('window').height * 0.6,
-            paddingHorizontal: 20
-          }}>
-            <Swiper
-            loop={false}
-            showsPagination={false}
-            index={0}
-            cls="flx-i"
-
+          <View
+            cls="absolute"
+            style={{
+              bottom: 60,
+              left: 0,
+              elevation: 15,
+              width: Dimensions.get("window").width,
+              minHeight: Dimensions.get("window").height * 0.6,
+              paddingHorizontal: 20,
+            }}
           >
-            {lessons.map((lesson, k) => <BlurView tint="light" intensity={100} key={k} cls="pa3 br4 flx-i mr2">
-                  <Heading additionalStyles="mt3">
-                    {t(`lessons.${lesson.uid}.label`, translation)}
-                </Heading>
-                <Paragraph additionalStyles="mt2 mb3 pb2">
-                    {t(`lessons.${lesson.uid}.text`, translation, {name: animalName})}
-                </Paragraph>
-                <View cls="aic jcc">
-                  {
-                    freeLessonTaken === lesson.uid ? <MaterialCommunityIcons
-                      size={80} cls="blue"
-                      name="comment-check-outline"
-                    /> : <FontAwesome size={80} cls="blue" name={lesson.uid !== null && lesson.canBeFree === true ? "unlock-alt" : "lock"} />
-                  }
-                  <Text type="italic">
-                      {freeLessonTaken === lesson.uid ? t('lessons.ongoingLesson', translation, { name: animalName }) : (freeLessonTaken === null && lesson.canBeFree === true) ? t('lessons.offerFreeLesson', translation, { name: animalName }) : (freeLessonTaken !== null && lesson.canBeFree === true) ? t('lessons.alreadyTakenFreeLesson', translation, { name: animalName }) : t('lessons.lessonPackPremium', translation, { name: animalName }) }
-                  </Text>
-                </View>
-                <View cls="mta">
-                  {freeLessonTaken !== lesson.uid && <Button handleOnPress={() => (lesson.canBeFree === false || (freeLessonTaken !== null && lesson.canBeFree === true)) ? Linking.openURL("https://parlezvousbestial.now.sh") : takeFreeLesson(lesson.uid)}>
-                    {
-                      (lesson.canBeFree === false || (freeLessonTaken !== null && lesson.canBeFree === true)) ? t('labels.goPremium', translation) : t('labels.startBehaviourCorrection', translation)
-                    }
-                  </Button> }
-
-                </View>
-              </BlurView>)}
-
-          </Swiper>
+            <Swiper loop={false} showsPagination={false} index={0} cls="flx-i">
+              {lessons.map((lesson, k) => (
+                <BlurView tint="light" intensity={100} key={k} cls="pa3 br4 flx-i mr2">
+                  <Heading additionalStyles="mt3">{t(`lessons.${lesson.uid}.label`, translation)}</Heading>
+                  <Paragraph additionalStyles="mt2 mb3 pb2">
+                    {t(`lessons.${lesson.uid}.text`, translation, { name: animalName })}
+                  </Paragraph>
+                  <View cls="aic jcc">
+                    {freeLessonTaken === lesson.uid ? (
+                      <MaterialCommunityIcons size={80} cls="blue" name="comment-check-outline" />
+                    ) : (
+                      <FontAwesome
+                        size={80}
+                        cls="blue"
+                        name={lesson.uid !== null && lesson.canBeFree === true ? "unlock-alt" : "lock"}
+                      />
+                    )}
+                    <Text type="italic">
+                      {freeLessonTaken === lesson.uid
+                        ? t("lessons.ongoingLesson", translation, { name: animalName })
+                        : freeLessonTaken === null && lesson.canBeFree === true
+                        ? t("lessons.offerFreeLesson", translation, { name: animalName })
+                        : freeLessonTaken !== null && lesson.canBeFree === true
+                        ? t("lessons.alreadyTakenFreeLesson", translation, { name: animalName })
+                        : t("lessons.lessonPackPremium", translation, { name: animalName })}
+                    </Text>
+                  </View>
+                  <View cls="mta">
+                    {freeLessonTaken !== lesson.uid && (
+                      <Button
+                        handleOnPress={() =>
+                          lesson.canBeFree === false || (freeLessonTaken !== null && lesson.canBeFree === true)
+                            ? Linking.openURL("https://parlezvousbestial.now.sh")
+                            : takeFreeLesson(lesson.uid)
+                        }
+                      >
+                        {lesson.canBeFree === false || (freeLessonTaken !== null && lesson.canBeFree === true)
+                          ? t("labels.goPremium", translation)
+                          : t("labels.startBehaviourCorrection", translation)}
+                      </Button>
+                    )}
+                  </View>
+                </BlurView>
+              ))}
+            </Swiper>
           </View>
         </Animatable.View>
       </Animatable.View>

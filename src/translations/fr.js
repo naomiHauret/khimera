@@ -11,7 +11,7 @@ export default {
   },
   labels: {
     or: "ou",
-    startBehaviourCorrection: 'Commencer la correction comportementale',
+    startBehaviourCorrection: "Commencer la correction comportementale",
     lastUpdate: "Dernière mise à jour: %date%",
     back: "Retour",
     doYouReallyWantToDeleteThisProfile: "Voulez-vous vraiment supprimer le profil de %name% ?",
@@ -33,7 +33,7 @@ export default {
     skip: "Passer",
     previous: "Précédent",
     save: "Enregistrer",
-    messageSent: 'Message transmis !',
+    messageSent: "Message transmis !",
     saveProfile: "Sauvegarder le profil de %name%",
     takePicture: "Prendre sa photo",
     humanProfileName: "Profil humain",
@@ -86,6 +86,20 @@ export default {
     relaxed: "Relaxé",
   },
   screens: {
+    about: {
+      app: {
+        title: 'À propos de Khimera',
+        text: 'Khimera est une application développée par VOICE. Khimera fonctionne en symbiose avec le robot DECOY, également développé et construit par VOICE. Ensemble, ces deux outils agissent comme des traducteurs instantanés entre vous et votre animal.'
+      },
+      premium: {
+        title: 'Mode premium',
+        text: 'Certaines fonctionnalités de Khimera ne sont disponibles que pour les utilisateurs ayant souscrit à notre formule premium. Cette formule permet d\'ajouter plusieurs profils de la même espèce au même robot DECOY et donne accès à l\'ensemble des packs d\'apprentissages de comportements et de langage pour vous et votre animal.'
+      },
+      private: {
+        title: 'Respect de la vie privée',
+        text: 'Parce que le respect de votre vie privée fait partie de nos priorités, Khimera s\'engage à ne pas enregistrer et diffuser vos informations et messages.'
+      }
+    },
     pairing: {
       title: "Appairage DECOY modèle KYUFORALL-Dog  avec KHIMERA en cours ...",
       text:
@@ -121,38 +135,44 @@ export default {
       title: "Les profils ont bien été enregistrés.",
       text: "KHIMERA procède à l’échange d’information avec DECOY, merci de patientez quelques instants ...",
     },
+    chart: {
+      label:
+        "Malheureusement, Khimera ne possède pas assez de données pour analyser l'évolution de votre relation avec %name%.",
+      text: "Reconsultez cet écran dans quelques jours.",
+    },
   },
   messages: {
     animalFeeling: "État d'esprit de %name%: %emotion%",
     noInternetConnection: "Aucune connexion internet",
-    khimeraToDecoy: 'Khimera a bien transmis votre message à DECOY !',
-    decoyToAnimal: 'DECOY a bien transmis votre message à %animalName% !'
+    khimeraToDecoy: "Khimera a bien transmis votre message à DECOY !",
+    decoyToAnimal: "DECOY a bien transmis votre message à %animalName% !",
   },
   lessons: {
-    offerFreeLesson: 'Khimera vous offre une correction comportementale gratuite pour %name%. Assurées par votre robot DECOY dans le respect et le bien-être  de %name%, ces leçons dureront le temps qu\'il faudra pour aider %name%',
-    lessonPackPremium: 'Ce pack de leçon n\'est disponible que pour les utiisateurs ayant souscrit à une offre premium',
-    ongoingLesson: 'Cette correction comportementale pour %name% est en cours.',
-    alreadyTakenFreeLesson: 'Vous avez déjà bénéficié d\'une correction comportementale gratuite pour %name%. Pour accéder à cette correction comportementale, nous vous suggérons de vous abonner à notre offre premium.',
+    offerFreeLesson:
+      "Khimera vous offre une correction comportementale gratuite pour %name%. Assurées par votre robot DECOY dans le respect et le bien-être  de %name%, ces leçons dureront le temps qu'il faudra pour aider %name%.",
+    lessonPackPremium: "Ce pack de leçon n'est disponible que pour les utiisateurs ayant souscrit à une offre premium.",
+    ongoingLesson: "Cette correction comportementale pour %name% est en cours.",
+    alreadyTakenFreeLesson:
+      "Vous avez déjà bénéficié d'une correction comportementale gratuite pour %name%. Pour accéder à cette correction comportementale, nous vous suggérons de vous abonner à notre offre premium.",
     behaviours: {
-      label: 'Comportements',
-      text: 'Apprenez à décrypter le langage corporel de %name% pour comprendre ce qu\'il dit'
+      label: "Comportements",
+      text: "Apprenez à décrypter le langage corporel de %name% pour comprendre ce qu'il dit.",
     },
     vocals: {
-      label: 'Langage verbal',
-      text: 'Aboiements ? Gémissements ? Glapissements ? Découvrez ce que %name% veut vous dire.'
+      label: "Langage verbal",
+      text: "Aboiements ? Gémissements ? Glapissements ? Découvrez ce que %name% veut vous dire.",
     },
     agressivity: {
-      label: 'Agressivité',
-      text: 'DECOY peut apprendre à %name% à être moins agressif.'
+      label: "Agressivité",
+      text: "DECOY peut apprendre à %name% à être moins agressif.",
     },
     anxiety: {
-      label: 'Anxiété',
-      text: 'DECOY peut apprendre à %name% à ne plus ressentir de peur ou d\'anxiété lors de vos absences.'
+      label: "Anxiété",
+      text: "DECOY peut apprendre à %name% à ne plus ressentir de peur ou d'anxiété lors de vos absences.",
     },
     houseTraining: {
-      label: 'Propreté',
-      text: 'DECOY peut apprendre à %name% à faire ses besoins à l\'endroit que vous désignez.'
+      label: "Propreté",
+      text: "DECOY peut apprendre à %name% à faire ses besoins à l'endroit que vous désignez.",
     },
-
-  }
+  },
 }

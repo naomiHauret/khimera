@@ -6,48 +6,48 @@ export const emotions = [
   },
   {
     uid: "love",
-    type: 'positive',
+    type: "positive",
     emoji: "two_hearts",
   },
   {
     uid: "joy",
-    type: 'positive',
+    type: "positive",
     emoji: "blush",
   },
   {
     uid: "angry",
-    type: 'negative',
+    type: "negative",
     emoji: "rage",
   },
 
   {
     uid: "sadness",
-    type: 'negative',
+    type: "negative",
     emoji: "disappointed",
   },
   {
     uid: "fear",
-    type: 'negative',
+    type: "negative",
     emoji: "cold_sweat",
   },
   {
     uid: "stressed",
-    type: 'negative',
+    type: "negative",
     emoji: "skull",
   },
   {
     uid: "suicidal",
-    type: 'negative',
+    type: "negative",
     emoji: "skull",
   },
   {
     uid: "lustful",
-    type: 'other',
+    type: "other",
     emoji: "smirk",
   },
   {
     uid: "desire",
-    type: 'other',
+    type: "other",
     emoji: "smiling_imp",
   },
   {
@@ -57,143 +57,143 @@ export const emotions = [
   },
   {
     uid: "loneliness",
-    type: 'negative',
+    type: "negative",
     emoji: "worried",
   },
   {
     uid: "aversion",
-    type: 'negative',
+    type: "negative",
     emoji: "weary",
   },
   {
     uid: "excitement",
-    type: 'positive',
+    type: "positive",
     emoji: "star-struck",
   },
   {
     uid: "surprise",
-    type: 'other',
+    type: "other",
     emoji: "open_mouth",
   },
   {
     uid: "unease",
-    type: 'negative',
+    type: "negative",
     emoji: "sweat",
   },
   {
     uid: "pain",
-    type: 'negative',
+    type: "negative",
     emoji: "face_with_head_bandage",
   },
   {
     uid: "sick",
-    type: 'negative',
+    type: "negative",
     emoji: "nauseated_face",
   },
   {
     uid: "hatred",
-    type: 'negative',
+    type: "negative",
     emoji: "face_with_symbols_on_mouth",
   },
   {
     uid: "irritated",
-    type: 'negative',
+    type: "negative",
     emoji: "anger",
   },
   {
     uid: "tired",
-    type: 'negative',
+    type: "negative",
     emoji: "sleeping",
   },
   {
     uid: "concern",
-    type: 'negative',
+    type: "negative",
     emoji: "grimacing",
   },
   {
     uid: "hungry",
-    type: 'negative',
+    type: "negative",
     emoji: "fork_and_knife",
   },
   {
     uid: "thirsty",
-    type: 'negative',
+    type: "negative",
     emoji: "potable_water",
   },
   {
     uid: "rested",
-    type: 'positive',
+    type: "positive",
     emoji: "grin",
   },
   {
     uid: "pride",
-    type: 'positive',
+    type: "positive",
     emoji: "ok_woman",
   },
   {
     uid: "guilt",
-    type: 'negative',
+    type: "negative",
     emoji: "cold_sweat",
   },
   {
     uid: "frustration",
-    type: 'negative',
+    type: "negative",
     emoji: "weary",
   },
   {
     uid: "anxiety",
-    type: 'negative',
+    type: "negative",
     emoji: "fearful",
   },
   {
     uid: "nervousness",
-    type: 'negative',
+    type: "negative",
     emoji: "scream",
   },
   {
     uid: "disappointment",
     emoji: "disappointed",
-    type: 'negative',
+    type: "negative",
   },
   {
     uid: "shame",
     emoji: "bow",
-    type: 'negative',
+    type: "negative",
   },
   {
     uid: "jealousy",
     emoji: "imp",
-    type: 'negative',
+    type: "negative",
   },
   {
     uid: "hostile",
-    type: 'negative',
+    type: "negative",
     emoji: "japanese_ogre",
   },
 
   {
     uid: "hope",
     emoji: "pray",
-    type: 'positive',
+    type: "positive",
   },
   {
     uid: "relaxed",
     type: "positive",
-    emoji: "hugging_face"
+    emoji: "hugging_face",
   },
   {
     uid: "calm",
     type: "positive",
-    emoji: "innocent"
+    emoji: "innocent",
   },
   {
     uid: "bored",
     type: "neutral",
-    emoji: "unamused"
+    emoji: "unamused",
   },
   {
     uid: "unsafe",
     type: "negative",
-    emoji: "cold_sweat"
-  }
+    emoji: "cold_sweat",
+  },
 ]

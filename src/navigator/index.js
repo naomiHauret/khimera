@@ -10,6 +10,7 @@ import ScreenFormProfileHuman from "screens/FormProfileHuman"
 import ScreenProfiles from "screens/Profiles"
 import ScreenProfilesSaved from "screens/ProfilesSaved"
 import ScreenKhimeraCam from "screens/KhimeraCam"
+import ScreenAbout from "screens/About"
 
 const OnboardingNavigator = FluidNavigator({
   ScreenPairing: {
@@ -48,6 +49,9 @@ const MainNavigator = FluidNavigator({
   ScreenKhimeraCam: {
     screen: ScreenKhimeraCam,
   },
+  ScreenAbout: {
+    screen: ScreenAbout,
+  }
 })
 
 const InitializationNavigator = createSwitchNavigator({

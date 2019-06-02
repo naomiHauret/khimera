@@ -1,22 +1,22 @@
 export const lessons = [
   {
-    uid: 'agressivity',
-    canBeFree: true
-  },
-  {
-    uid: 'anxiety',
+    uid: "agressivity",
     canBeFree: true,
   },
   {
-    uid: 'houseTraining',
+    uid: "anxiety",
     canBeFree: true,
   },
   {
-    uid: 'behaviours',
-    canBeFree: false
+    uid: "houseTraining",
+    canBeFree: true,
   },
   {
-    uid: 'vocals',
-    canBeFree: false
-  }
+    uid: "behaviours",
+    canBeFree: false,
+  },
+  {
+    uid: "vocals",
+    canBeFree: false,
+  },
 ]

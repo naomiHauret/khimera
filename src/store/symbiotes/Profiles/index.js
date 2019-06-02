@@ -1,6 +1,6 @@
 import { createSymbiote } from "redux-symbiote"
 import { DateTime } from "luxon"
-import { addEmotion } from 'services/emotions'
+import { addEmotion } from "services/emotions"
 //
 // Handles humans & animals profiles
 

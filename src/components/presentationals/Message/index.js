@@ -4,16 +4,16 @@ import { wrap } from "react-native-style-tachyons"
 import PropTypes from "prop-types"
 import { Ionicons } from "@expo/vector-icons"
 import * as Animatable from "react-native-animatable-unmountable"
-import Text from 'components/presentationals/Text'
+import Text from "components/presentationals/Text"
 const themeSystem = {
   backgrounds: {
     info: "bg-yellow-200",
     alert: "bg-red",
   },
   texts: {
-    alert: 'white',
-    info: 'yellow-600',
-  }
+    alert: "white",
+    info: "yellow-600",
+  },
 }
 
 class Message extends PureComponent {
@@ -45,7 +45,7 @@ class Message extends PureComponent {
         <Text cls={`${themeSystem.texts[theme]} tac ph3`}>{children}</Text>
         {closable === true && (
           <TouchableOpacity cls="ph2 absolute" style={{ right: 0 }} onPress={onClose}>
-            <Ionicons name="ios-close" size={25} cls={`${themeSystem.texts[theme]}`}/>
+            <Ionicons name="ios-close" size={25} cls={`${themeSystem.texts[theme]}`} />
           </TouchableOpacity>
         )}
       </Animatable.View>

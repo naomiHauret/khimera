@@ -1,11 +1,11 @@
-import { API_URL } from 'utils/config'
+import { API_URL } from "utils/config"
 
 export const addLesson = (payload) => {
   fetch(`${API_URL}/lesson`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify({ uid: payload })
+    body: JSON.stringify({ uid: payload }),
   })
 }

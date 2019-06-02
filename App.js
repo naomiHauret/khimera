@@ -64,6 +64,7 @@ export default wrap (
         require('./assets/images/translate.png'),
         require('./assets/images/learn.png'),
         require('./assets/images/data.png'),
+        require('./assets/images/empty_data.png'),
       ]),
       Font.loadAsync({
         'text': require('./assets/fonts/Lato-Regular.ttf'),

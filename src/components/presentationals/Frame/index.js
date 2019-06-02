@@ -33,7 +33,7 @@ class Frame extends PureComponent {
             <MaterialIcons size={25} name="arrow-back" cls="grey-200" />
           </TouchableOpacity>
         )}
-        <Body theme={theme}>{children}</Body>
+        <Body>{children}</Body>
       </View>
     )
   }

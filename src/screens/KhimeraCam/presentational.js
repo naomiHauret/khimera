@@ -5,14 +5,15 @@ import { NavigationEvents } from "react-navigation"
 import ViewAnimal from "./ViewAnimal"
 import ViewHuman from "./ViewHuman"
 import ViewLessons from "./ViewLessons"
-import { View, Dimensions, TouchableOpacity, Image } from "react-native"
+import ViewChart from "./ViewChart"
+import { View, Dimensions, TouchableOpacity, Image, Picker, Linking } from "react-native"
 import GestureRecognizer, { swipeDirections } from "react-native-swipe-gestures"
 import * as Animatable from "react-native-animatable"
 import Swiper from "react-native-swiper"
 import ScreenProfiles from "screens/Profiles"
 import Text from "components/presentationals/Text"
 import { MaterialCommunityIcons } from "@expo/vector-icons"
-import { Notifications } from 'expo'
+import { Notifications, BlurView } from "expo"
 
 class KhimeraCam extends PureComponent {
   state = {
@@ -37,7 +38,6 @@ class KhimeraCam extends PureComponent {
   // on down swipe gesture, toggle between human and animal "cam"
   _onSwipeUp = (gestureState) => this.state.canSwitchView && this._toggleMode()
 
-
   _sendNotificationImmediately = async () => {
     const { translation, currentAnimal } = this.props
     let notificationId = await Notifications.presentLocalNotificationAsync({
@@ -46,20 +46,29 @@ class KhimeraCam extends PureComponent {
       android: {
         sound: true,
       },
-    }
-)
+    })
   }
 
   async componentDidMount() {
     let result = await Permissions.askAsync(Permissions.NOTIFICATIONS)
-    if (Constants.isDevice && result.status === 'granted') {
-      console.log('Notification permissions granted.')
+    if (Constants.isDevice && result.status === "granted") {
+      console.log("Notification permissions granted.")
     }
     Notifications.addListener(this._handleNotification)
   }
 
   render() {
-    const { freeLessonTaken, takeFreeLesson, addToast, translation, navigation, currentAnimal, currentHuman, updateHumanMood, updateAnimalMood } = this.props
+    const {
+      freeLessonTaken,
+      takeFreeLesson,
+      addToast,
+      translation,
+      navigation,
+      currentAnimal,
+      currentHuman,
+      updateHumanMood,
+      changeLocale,
+    } = this.props
     const { canSwitchView } = this.state
     const config = {
       velocityThreshold: 0.3,
@@ -68,6 +77,16 @@ class KhimeraCam extends PureComponent {
     const profile = {
       ...(this.state.camView === "ANIMAL" ? currentAnimal : currentHuman),
     }
+
+    const translationOptions = {}
+    translation.available.map(
+      (locale) =>
+        (translationOptions[locale] = {
+          value: locale,
+          label: t(`languages.${locale}`, translation),
+        }),
+    )
+
     return (
       <GestureRecognizer
         onSwipeUp={(state) => this._onSwipeUp(state)}
@@ -87,13 +106,15 @@ class KhimeraCam extends PureComponent {
           scrollEnabled={canSwitchView}
           loop={false}
           showsPagination={false}
-          index={0}
+          index={1}
         >
           <View cls="flx-i">
             <ViewLessons
               freeLessonTaken={freeLessonTaken}
               takeFreeLesson={takeFreeLesson}
-              translation={translation} animalName={currentAnimal.name}/>
+              translation={translation}
+              animalName={currentAnimal.name}
+            />
           </View>
           <Swiper scrollEnabled={canSwitchView} loop={false} showsPagination={false} index={1}>
             {this.state.camView === "ANIMAL" ? (
@@ -111,19 +132,18 @@ class KhimeraCam extends PureComponent {
                     setTimeout(() => {
                       addToast({
                         id: Date.now(),
-                        text: t("messages.khimeraToDecoy", translation)
+                        text: t("messages.khimeraToDecoy", translation),
                       })
                     }, 800)
-                    updateHumanMood({mood, id: profile.id})
+                    updateHumanMood({ mood, id: profile.id })
                     setTimeout(this._sendNotificationImmediately, Math.floor(Math.random() * (15000 - 8000 + 1) + 8000))
-                  }
-                  }
+                  }}
                 />
               </Animatable.View>
             )}
           </Swiper>
           <View cls="flx-i">
-            <Text>Right</Text>
+            <ViewChart animalName={currentAnimal.name} translation={translation} />
           </View>
         </Swiper>
         <Animatable.View
@@ -143,12 +163,42 @@ class KhimeraCam extends PureComponent {
               source={{ uri: profile.picture }}
               style={{ borderRadius: 9999, resizeMode: "cover", width: 80, height: 80 }}
             />
-            <View cls="br5 pa2 bg-yellow-300" style={{ bottom: 15 }}>
+            <View cls="br5 pa2 bg-yellow-100" style={{ bottom: 15 }}>
               <Text type="bold" additionalStyles="yellow-600 f7">
                 {profile.name}
               </Text>
             </View>
           </TouchableOpacity>
+        </Animatable.View>
+        <Animatable.View
+            animation='fadeInRight'
+            delay={2400}
+          style={{ top: 20, right: 20, width: 40 }}
+            cls="absolute">
+          <BlurView
+            tint="dark"
+            intensity={10}
+            cls="flx-i br5 pv3"
+          >
+            <View cls="aic jcc flx-i mb3" style={{ position: "relative" }}>
+              <MaterialCommunityIcons name="google-translate" cls="white" size={20} />
+              <Picker
+                selectedValue={translation.locale}
+                style={{ position: "absolute", top: 0, left: 0, opacity: 0, width: "100%", height: "100%" }}
+                onValueChange={(itemValue, itemIndex) => changeLocale(itemValue)}
+              >
+                {Object.values(translationOptions).map((option, key) => (
+                  <Picker.Item label={option.label} value={option.value} key={key} />
+                ))}
+              </Picker>
+            </View>
+            <TouchableOpacity cls="aic jcc flx-i mb3" onPress={() => navigation.navigate('ScreenAbout')}>
+              <MaterialCommunityIcons name="help" cls="white" size={20} />
+            </TouchableOpacity>
+            <TouchableOpacity cls="aic jcc flx-i" onPress={() => Linking.openURL("https://parlezvousbestial.now.sh")}>
+              <MaterialCommunityIcons name="cart-outline" cls="white" size={20} />
+            </TouchableOpacity>
+          </BlurView>
         </Animatable.View>
         <View style={{ bottom: 15, left: 0, opacity: canSwitchView ? 1 : 0 }} cls="absolute aic w100vw flxdr">
           <TouchableOpacity
