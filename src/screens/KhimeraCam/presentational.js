@@ -4,6 +4,7 @@ import { t } from "utils/translation"
 import { NavigationEvents } from "react-navigation"
 import ViewAnimal from "./ViewAnimal"
 import ViewHuman from "./ViewHuman"
+import ViewLessons from "./ViewLessons"
 import { View, Dimensions, TouchableOpacity, Image } from "react-native"
 import GestureRecognizer, { swipeDirections } from "react-native-swipe-gestures"
 import * as Animatable from "react-native-animatable"
@@ -36,7 +37,7 @@ class KhimeraCam extends PureComponent {
   _onSwipeUp = (gestureState) => this.state.canSwitchView && this._toggleMode()
 
   render() {
-    const { addToast, translation, navigation, currentAnimal, currentHuman, updateHumanMood, updateAnimalMood } = this.props
+    const { freeLessonTaken, takeFreeLesson, addToast, translation, navigation, currentAnimal, currentHuman, updateHumanMood, updateAnimalMood } = this.props
     const { canSwitchView } = this.state
     const config = {
       velocityThreshold: 0.3,
@@ -64,10 +65,13 @@ class KhimeraCam extends PureComponent {
           scrollEnabled={canSwitchView}
           loop={false}
           showsPagination={false}
-          index={1}
+          index={0}
         >
           <View cls="flx-i">
-            <Text>left</Text>
+            <ViewLessons
+              freeLessonTaken={freeLessonTaken}
+              takeFreeLesson={takeFreeLesson}
+              translation={translation} animalName={currentAnimal.name}/>
           </View>
           <Swiper scrollEnabled={canSwitchView} loop={false} showsPagination={false} index={1}>
             {this.state.camView === "ANIMAL" ? (

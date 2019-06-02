@@ -11,6 +11,7 @@ export default {
   },
   labels: {
     or: "ou",
+    startBehaviourCorrection: 'Commencer la correction comportementale',
     lastUpdate: "Dernière mise à jour: %date%",
     back: "Retour",
     doYouReallyWantToDeleteThisProfile: "Voulez-vous vraiment supprimer le profil de %name% ?",
@@ -121,5 +122,32 @@ export default {
     noInternetConnection: "Aucune connexion internet",
     khimeraToDecoy: 'Khimera a bien transmis votre message à DECOY !',
     decoyToAnimal: 'DECOY a bien transmis votre message à %animalName% !'
+  },
+  lessons: {
+    offerFreeLesson: 'Khimera vous offre une correction comportementale gratuite pour %name%. Assurées par votre robot DECOY dans le respect et le bien-être  de %name%, ces leçons dureront le temps qu\'il faudra pour aider %name%',
+    lessonPackPremium: 'Ce pack de leçon n\'est disponible que pour les utiisateurs ayant souscrit à une offre premium',
+    ongoingLesson: 'Cette correction comportementale pour %name% est en cours.',
+    alreadyTakenFreeLesson: 'Vous avez déjà bénéficié d\'une correction comportementale gratuite pour %name%. Pour accéder à cette correction comportementale, nous vous suggérons de vous abonner à notre offre premium.',
+    behaviours: {
+      label: 'Comportements',
+      text: 'Apprenez à décrypter le langage corporel de %name% pour comprendre ce qu\'il dit'
+    },
+    vocals: {
+      label: 'Langage verbal',
+      text: 'Aboiements ? Gémissements ? Glapissements ? Découvrez ce que %name% veut vous dire.'
+    },
+    agressivity: {
+      label: 'Agressivité',
+      text: 'DECOY peut apprendre à %name% à être moins agressif.'
+    },
+    anxiety: {
+      label: 'Anxiété',
+      text: 'DECOY peut apprendre à %name% à ne plus ressentir de peur ou d\'anxiété lors de vos absences.'
+    },
+    houseTraining: {
+      label: 'Propreté',
+      text: 'DECOY peut apprendre à %name% à faire ses besoins à l\'endroit que vous désignez.'
+    },
+
   }
 }

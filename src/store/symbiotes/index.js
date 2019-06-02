@@ -4,6 +4,7 @@ import { translationReducer as translation } from "store/symbiotes/Translation"
 import { toastrReducer as toastr } from "store/symbiotes/Toastr"
 import { profilesReducer as profiles } from "store/symbiotes/Profiles"
 import { formsReducer as forms } from "store/symbiotes/Forms"
+import { lessonsReducer as lessons } from "store/symbiotes/Lessons"
 
 export const rootReducer = combineReducers({
   initialization,
@@ -11,4 +12,5 @@ export const rootReducer = combineReducers({
   profiles,
   toastr,
   forms,
+  lessons,
 })

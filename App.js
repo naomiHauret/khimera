@@ -54,7 +54,7 @@ export default wrap (
   _loadResourcesAsync = async () => {
     return Promise.all([
       Asset.loadAsync([
-        require('./assets/images/splash.png'),
+        require('./assets/splash.png'),
         require('./assets/images/permission.png'),
         require('./assets/images/pairing.png'),
         require('./assets/images/success.png'),
@@ -117,7 +117,7 @@ export default wrap (
           }]
         }}>
         <Animated.Image
-          source={require('./assets/images/splash.png')}
+          source={require('./assets/splash.png')}
           style={{
             width: undefined,
             height: undefined,
