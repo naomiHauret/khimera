@@ -114,20 +114,21 @@ class ViewLessons extends PureComponent {
                 <View cls="aic jcc">
                   {
                     freeLessonTaken === lesson.uid ? <MaterialCommunityIcons
-                      size={80} cls="grey-100"
+                      size={80} cls="blue"
                       name="comment-check-outline"
-                    /> : <FontAwesome size={80} cls="grey-100" name={lesson.uid !== null && lesson.canBeFree === true ? "unlock-alt" : "lock"} />
+                    /> : <FontAwesome size={80} cls="blue" name={lesson.uid !== null && lesson.canBeFree === true ? "unlock-alt" : "lock"} />
                   }
                   <Text type="italic">
                       {freeLessonTaken === lesson.uid ? t('lessons.ongoingLesson', translation, { name: animalName }) : (freeLessonTaken === null && lesson.canBeFree === true) ? t('lessons.offerFreeLesson', translation, { name: animalName }) : (freeLessonTaken !== null && lesson.canBeFree === true) ? t('lessons.alreadyTakenFreeLesson', translation, { name: animalName }) : t('lessons.lessonPackPremium', translation, { name: animalName }) }
                   </Text>
                 </View>
                 <View cls="mta">
-                  <Button handleOnPress={() => (lesson.canBeFree === false || (freeLessonTaken !== null && lesson.canBeFree === true)) ? Linking.openURL("https://parlezvousbestial.now.sh") : takeFreeLesson(lesson.uid) }>
+                  {freeLessonTaken !== lesson.uid && <Button handleOnPress={() => (lesson.canBeFree === false || (freeLessonTaken !== null && lesson.canBeFree === true)) ? Linking.openURL("https://parlezvousbestial.now.sh") : takeFreeLesson(lesson.uid)}>
                     {
-                        (lesson.canBeFree === false || (freeLessonTaken !== null && lesson.canBeFree === true)) ? t('labels.goPremium', translation) : t('labels.startBehaviourCorrection', translation)
+                      (lesson.canBeFree === false || (freeLessonTaken !== null && lesson.canBeFree === true)) ? t('labels.goPremium', translation) : t('labels.startBehaviourCorrection', translation)
                     }
-                  </Button>
+                  </Button> }
+
                 </View>
               </BlurView>)}
 

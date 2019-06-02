@@ -15,7 +15,7 @@ export const emotions = [
     emoji: "blush",
   },
   {
-    uid: "anger",
+    uid: "angry",
     type: 'negative',
     emoji: "rage",
   },
@@ -71,7 +71,7 @@ export const emotions = [
     emoji: "star-struck",
   },
   {
-    uid: "suprise",
+    uid: "surprise",
     type: 'other',
     emoji: "open_mouth",
   },
@@ -96,7 +96,7 @@ export const emotions = [
     emoji: "face_with_symbols_on_mouth",
   },
   {
-    uid: "irritability",
+    uid: "irritated",
     type: 'negative',
     emoji: "anger",
   },
@@ -111,12 +111,12 @@ export const emotions = [
     emoji: "grimacing",
   },
   {
-    uid: "hunger",
+    uid: "hungry",
     type: 'negative',
     emoji: "fork_and_knife",
   },
   {
-    uid: "thirst",
+    uid: "thirsty",
     type: 'negative',
     emoji: "potable_water",
   },
@@ -166,7 +166,7 @@ export const emotions = [
     type: 'negative',
   },
   {
-    uid: "hostility",
+    uid: "hostile",
     type: 'negative',
     emoji: "japanese_ogre",
   },
@@ -176,4 +176,24 @@ export const emotions = [
     emoji: "pray",
     type: 'positive',
   },
+  {
+    uid: "relaxed",
+    type: "positive",
+    emoji: "hugging_face"
+  },
+  {
+    uid: "calm",
+    type: "positive",
+    emoji: "innocent"
+  },
+  {
+    uid: "bored",
+    type: "neutral",
+    emoji: "unamused"
+  },
+  {
+    uid: "unsafe",
+    type: "negative",
+    emoji: "cold_sweat"
+  }
 ]
