@@ -19,7 +19,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch, props) => {
   return {
-    updateAnimalMood: (payload) => dispatch(ProfilesActions.updateAnimalMood(payload)),
     removeToast: (payload) => dispatch(ToastrActions.remove(payload)),
     hideOnboarding: () => dispatch(InitializationActions.hideOnboarding()),
     pairingDone: () => dispatch(InitializationActions.pairingDone()),

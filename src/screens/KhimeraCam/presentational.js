@@ -13,7 +13,7 @@ import Swiper from "react-native-swiper"
 import ScreenProfiles from "screens/Profiles"
 import Text from "components/presentationals/Text"
 import { MaterialCommunityIcons } from "@expo/vector-icons"
-import { Notifications, BlurView } from "expo"
+import { Notifications, Permissions, BlurView } from "expo"
 
 class KhimeraCam extends PureComponent {
   state = {
@@ -38,23 +38,45 @@ class KhimeraCam extends PureComponent {
   // on down swipe gesture, toggle between human and animal "cam"
   _onSwipeUp = (gestureState) => this.state.canSwitchView && this._toggleMode()
 
-  _sendNotificationImmediately = async () => {
-    const { translation, currentAnimal } = this.props
-    let notificationId = await Notifications.presentLocalNotificationAsync({
-      title: t("labels.messageSent", translation),
-      body: t("messages.decoyToAnimal", translation, { animalName: currentAnimal.name }),
+  _handleNotification() {
+    return
+  }
+  _sendRandomBehaviour = () => {
+    const { translation, checkInComplete, currentAnimal, updateAnimalMood } = this.props
+    const emotionsList = [
+      "default",
+      "angry",
+      "irritated",
+      "unsafe",
+      "nervousness",
+      "joy",
+      "excitement",
+      "bored",
+      "relaxed",
+      "calm",
+      "hungry",
+    ]
+    let randomEmotion = Math.floor(Math.random() * (emotionsList.length - 1 - 0 + 1) + 0)
+    Notifications.presentLocalNotificationAsync({
+      title: currentAnimal.name,
+      body: t("messages.animalFeeling", translation, {
+        emotion: t(`behaviours.${emotionsList[randomEmotion]}`, translation),
+        name: currentAnimal.name,
+      }),
       android: {
         sound: true,
       },
     })
+    updateAnimalMood({ id: currentAnimal.id, mood: emotionsList[randomEmotion] })
   }
 
-  async componentDidMount() {
-    let result = await Permissions.askAsync(Permissions.NOTIFICATIONS)
-    if (Constants.isDevice && result.status === "granted") {
-      console.log("Notification permissions granted.")
-    }
+  _sendRandomAnimalNotification = () => {
+    setTimeout(this._sendRandomBehaviour, 3500)
+  }
+
+  componentDidMount() {
     Notifications.addListener(this._handleNotification)
+    this._sendRandomAnimalNotification()
   }
 
   render() {

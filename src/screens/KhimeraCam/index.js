@@ -22,6 +22,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch, props) => {
   return {
+    updateAnimalMood: (payload) => dispatch(ProfilesActions.updateAnimalMood(payload)),
     updateHumanMood: (payload) => dispatch(ProfilesActions.updateHumanMood(payload)),
     addToast: (payload) => dispatch(ToastrActions.add(payload)),
     takeFreeLesson: (payload) => dispatch(LessonsActions.takeFreeLesson(payload)),
