@@ -88,7 +88,7 @@ export default {
     about: {
       app: {
         title: 'About Khimera',
-        text: 'Khimera is developed by VOICE. Khimera works in harmony with DECOY robot, which is also developed and built dby VOICE. These tools act together as real-timer translators between you and your animal.'
+        text: 'Khimera is developed by VOICE. Khimera works in harmony with the DECOY robot and the BEAST system, which is also developed and built dby VOICE. These tools act together as real-timer translators between you and your animal.'
       },
       premium: {
         title: 'Premium plan',
@@ -118,12 +118,11 @@ export default {
       wantToOnboard:
         "It seems like this is your first time using Khimera on this device. Would you like to discover how Khimera works before we start ?",
       steps: {
-        num0: "Je remplis le profil des humains et animaux suceptibles de communiquer autour de moi.",
-        num1: "J’enregistre un geste, une phrase, une grimace... auquel j’ajoute mon humeur.",
-        num2: "Grâce au système VOICE, DECOY traduit automatiquement et instantanément mes enregistrements à l’animal.",
-        num2: "Grâce au système VOICE, DECOY traduit automatiquement et instantanément mes enregistrements à l’animal.",
-        num3: "J’apprends la langue de mon animal et il apprend la mienne.",
-        num4: "Je suis en temps réel l’évolution de mes rapports et de mes liens avec mon animal.",
+        num0: "I fill the profiles of all humans and animals that could communicate around me.",
+        num1: "I record a gesture, a sentence... and  precize my mood.",
+        num2: "Thanks to the BEAST sytem, DECOY translates my records to the animal.",
+        num3: "I learn about my animal's language and my animal learns about mine.",
+        num4: "I track on real-time how my relationship evolves with my animal.",
       },
     },
     profiles: {
@@ -147,30 +146,30 @@ export default {
   },
   lessons: {
     offerFreeLesson:
-      "Khimera offers you a free behaviour correction for %name%. Assurées par votre robot DECOY dans le respect et le bien-être  de %name%, ces leçons dureront le temps qu'il faudra pour aider %name%.",
-    lessonPackPremium: "Ce pack de leçon n'est disponible que pour les utiisateurs ayant souscrit à une offre premium.",
-    ongoingLesson: "Cette correction comportementale pour %name% est en cours.",
+    "Khimera offers you a free behaviour correction for %name%. Given by your DECOY robot with the well-being %name% in mind, these lessons will take the time needed to help %name%.",
+    lessonPackPremium: "This lessons pack is only available to users that subscribed to our premium plan.",
+    ongoingLesson: "You enrolled %name% on this lesson.",
     alreadyTakenFreeLesson:
-      "Vous avez déjà bénéficié d'une correction comportementale gratuite pour %name%. Pour accéder à cette correction comportementale, nous vous suggérons de vous abonner à notre offre premium.",
+      "You have already enrolled %name% to a free behaviour correction. To gain access to more lessons, we suggest you to upgrade to our premium plan.",
     behaviours: {
-      label: "Comportements",
-      text: "Apprenez à décrypter le langage corporel de %name% pour comprendre ce qu'il dit.",
+      label: "Behaviours",
+      text: "Learn how to decrypt %name%'s body language and understand what it truly means.",
     },
     vocals: {
-      label: "Langage verbal",
-      text: "Aboiements ? Gémissements ? Glapissements ? Découvrez ce que %name% veut vous dire.",
+      label: "Languagee",
+      text: "Barks ? Whines ? Yelps ? Discover what %name% has to say !",
     },
     agressivity: {
-      label: "Agressivité",
-      text: "DECOY peut apprendre à %name% à être moins agressif.",
+      label: "Agressivity",
+      text: "DECOY can help %name% to be less agressive.",
     },
     anxiety: {
-      label: "Anxiété",
-      text: "DECOY peut apprendre à %name% à ne plus ressentir de peur ou d'anxiété lors de vos absences.",
+      label: "Anxiety",
+      text: "DECOY can help %name% to not be anxious anymore while you are away.",
     },
     houseTraining: {
-      label: "Propreté",
-      text: "DECOY peut apprendre à %name% à faire ses besoins à l'endroit que vous désignez.",
+      label: "House training",
+      text: "DECOY can teach %name% to do his business where you want these to be done.",
     },
   },
 }

@@ -116,14 +116,14 @@ export default {
         "Vous pouvez maintenant remplir les profils des humains et chiens de votre entourage que votre DECOY doit aider à communiquer.",
     },
     onboarding: {
-      welcome: "Bienvenue sur KHIMERA, l’application compagnon officielle des robots DECOY !",
+      welcome: "Bienvenue sur Khimera, l’application compagnon officielle des robots DECOY !",
       wantToOnboard:
-        "Il semble que ce soit votre première utilisation de KHIMERA sur cet appareil. Désirez-vous découvrir le fonctionnement de KHIMERA avant de commencer ?",
+        "Il semble que ce soit votre première utilisation de Khimera sur cet appareil. Désirez-vous découvrir le fonctionnement de Khimera avant de commencer ?",
       steps: {
         num0: "Je remplis le profil des humains et animaux suceptibles de communiquer autour de moi.",
         num1: "J’enregistre un geste, une phrase, une grimace... auquel j’ajoute mon humeur.",
-        num2: "Grâce au système VOICE, DECOY traduit automatiquement et instantanément mes enregistrements à l’animal.",
-        num2: "Grâce au système VOICE, DECOY traduit automatiquement et instantanément mes enregistrements à l’animal.",
+        num2: "Grâce au système BEAST, DECOY traduit automatiquement et instantanément mes enregistrements à l’animal.",
+        num2: "Grâce au système BEAST, DECOY traduit automatiquement et instantanément mes enregistrements à l’animal.",
         num3: "J’apprends la langue de mon animal et il apprend la mienne.",
         num4: "Je suis en temps réel l’évolution de mes rapports et de mes liens avec mon animal.",
       },
@@ -133,7 +133,7 @@ export default {
     },
     profilesSaved: {
       title: "Les profils ont bien été enregistrés.",
-      text: "KHIMERA procède à l’échange d’information avec DECOY, merci de patientez quelques instants ...",
+      text: "Khimera procède à l’échange d’information avec DECOY, merci de patientez quelques instants ...",
     },
     chart: {
       label:
