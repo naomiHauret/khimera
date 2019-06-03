@@ -2,18 +2,17 @@
 <img src="https://i.imgur.com/ckmYG8m.png" />
 </p>
 
-# Khimera
-
-
-<p align="center">
-<img src="https://i.imgur.com/etVzXk9.png" />
-</p>
-
 <p align="center">
   <img src="https://i.imgur.com/aiLbnpO.png" />
 </p>
 
 Flash this QR Code to install and run app.
+
+# Khimera
+
+<p align="center">
+<img src="https://i.imgur.com/etVzXk9.png" />
+</p>
 
 ## About
 
