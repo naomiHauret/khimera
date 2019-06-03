@@ -3,6 +3,7 @@ import { wrap } from "react-native-style-tachyons"
 import { t } from "utils/translation"
 import Form from "./Form"
 import { NavigationEvents } from "react-navigation"
+import * as Animatable from "react-native-animatable"
 
 class ProfileHuman extends PureComponent {
   constructor(props) {
@@ -53,43 +54,45 @@ class ProfileHuman extends PureComponent {
             this._editPicture(null)
           }}
         />
-        <Form
-          shouldDisplayBack={isHumanProfileAlreadyRegistered}
-          translation={translation}
-          values={{
-            name: formData ? formData.name : null,
-            picture: formData ? formData.picture : null,
-          }}
-          editName={this._editName}
-          editPicture={this._editPicture}
-          onSubmit={() => {
-            if (navigation.getParam("id", "") === "") {
-              let newProfileId = Date.now()
-              addProfile({
-                id: newProfileId,
-                name: formData.name,
-                picture: formData.picture,
-              })
-              this._editName(null)
-              this._editPicture(null)
-              if (animalAlreadyRegistered === true) {
-                navigation.navigate("ScreenProfiles")
+        <Animatable.View cls="flx-i" animation="fadeIn">
+          <Form
+            shouldDisplayBack={isHumanProfileAlreadyRegistered}
+            translation={translation}
+            values={{
+              name: formData ? formData.name : null,
+              picture: formData ? formData.picture : null,
+            }}
+            editName={this._editName}
+            editPicture={this._editPicture}
+            onSubmit={() => {
+              if (navigation.getParam("id", "") === "") {
+                let newProfileId = Date.now()
+                addProfile({
+                  id: newProfileId,
+                  name: formData.name,
+                  picture: formData.picture,
+                })
+                this._editName(null)
+                this._editPicture(null)
+                if (animalAlreadyRegistered === true) {
+                  navigation.navigate("ScreenProfiles")
+                } else {
+                  setAsCurrent(newProfileId)
+                  navigation.navigate("ScreenFormProfileAnimal")
+                }
               } else {
-                setAsCurrent(newProfileId)
-                navigation.navigate("ScreenFormProfileAnimal")
+                updateProfile({
+                  id: navigation.getParam("id", ""),
+                  name: formData.name,
+                  picture: formData.picture,
+                })
+                this._editName(null)
+                this._editPicture(null)
+                navigation.navigate("ScreenProfilesSaved")
               }
-            } else {
-              updateProfile({
-                id: navigation.getParam("id", ""),
-                name: formData.name,
-                picture: formData.picture,
-              })
-              this._editName(null)
-              this._editPicture(null)
-              navigation.navigate("ScreenProfilesSaved")
-            }
-          }}
-        />
+            }}
+          />
+        </Animatable.View>
       </Fragment>
     )
   }

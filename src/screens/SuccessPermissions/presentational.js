@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react"
 import Illustration from "components/presentationals/Illustration"
-import Frame from "components/presentationals/Frame"
+import Frame from "components/wired/Frame"
 import Heading from "components/presentationals/Heading"
 import Text from "components/presentationals/Text"
 import Paragraph from "components/presentationals/Paragraph"

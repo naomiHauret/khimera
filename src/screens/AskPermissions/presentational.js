@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react"
 import Illustration from "components/presentationals/Illustration"
-import Frame from "components/presentationals/Frame"
+import Frame from "components/wired/Frame"
 import Heading from "components/presentationals/Heading"
 import Text from "components/presentationals/Text"
 import Paragraph from "components/presentationals/Paragraph"
@@ -9,6 +9,7 @@ import { wrap } from "react-native-style-tachyons"
 import { t } from "utils/translation"
 import { Permissions } from "expo"
 import { View } from "react-native"
+import * as Animatable from "react-native-animatable"
 
 class AskPermissions extends PureComponent {
   constructor(props) {
@@ -45,18 +46,20 @@ class AskPermissions extends PureComponent {
   render() {
     const { translation, navigation } = this.props
     return (
-      <Frame theme="clear">
-        <Heading margins="mb3">{t("screens.askPermissions.title", translation)}</Heading>
-        <Paragraph additionalStyles="f7 mb3">{t("screens.askPermissions.text", translation)}</Paragraph>
-        <View cls="flx-i">
-          <Illustration src={require("./../../../assets/images/permission.png")} />
-        </View>
-        <View cls="mta">
-          <Button handleOnPress={this._askPermissions} theme="flat" muted={false} align="center">
-            {t("labels.understand", translation)}
-          </Button>
-        </View>
-      </Frame>
+      <Animatable.View cls="flx-i" animation="fadeIn">
+        <Frame theme="clear">
+          <Heading margins="mb3">{t("screens.askPermissions.title", translation)}</Heading>
+          <Paragraph additionalStyles="f7 mb3">{t("screens.askPermissions.text", translation)}</Paragraph>
+          <View cls="flx-i">
+            <Illustration src={require("./../../../assets/images/permission.png")} />
+          </View>
+          <View cls="mta">
+            <Button handleOnPress={this._askPermissions} theme="flat" muted={false} align="center">
+              {t("labels.understand", translation)}
+            </Button>
+          </View>
+        </Frame>
+      </Animatable.View>
     )
   }
 }

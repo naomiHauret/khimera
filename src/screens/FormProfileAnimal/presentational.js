@@ -3,7 +3,7 @@ import { wrap } from "react-native-style-tachyons"
 import { t } from "utils/translation"
 import Form from "./Form"
 import { NavigationEvents } from "react-navigation"
-
+import * as Animatable from "react-native-animatable"
 class ProfileAnimal extends PureComponent {
   constructor(props) {
     super(props)
@@ -49,6 +49,8 @@ class ProfileAnimal extends PureComponent {
             this._editPicture(null)
           }}
         />
+        <Animatable.View cls="flx-i" animation="fadeIn">
+
         <Form
           navigation={navigation}
           shouldDisplayBack={isAnimalProfileAlreadyRegistered}
@@ -89,6 +91,7 @@ class ProfileAnimal extends PureComponent {
             }
           }}
         />
+        </Animatable.View>
       </Fragment>
     )
   }

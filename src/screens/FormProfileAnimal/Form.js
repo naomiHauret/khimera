@@ -19,7 +19,7 @@ import {
 } from "react-native"
 import { Camera, ImagePicker, BlurView } from "expo"
 import * as Animatable from "react-native-animatable"
-import Frame from "components/presentationals/Frame"
+import Frame from "components/wired/Frame"
 import { AntDesign, Entypo, Feather, MaterialIcons } from "@expo/vector-icons"
 
 class Form extends PureComponent {

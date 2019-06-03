@@ -1,6 +1,6 @@
 import React, { PureComponent, Fragment } from "react"
 import { Image, View, ActivityIndicator } from "react-native"
-import Frame from "components/presentationals/Frame"
+import Frame from "components/wired/Frame"
 import Heading from "components/presentationals/Heading"
 import Text from "components/presentationals/Text"
 import Paragraph from "components/presentationals/Paragraph"

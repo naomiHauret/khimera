@@ -26,7 +26,7 @@ NativeTachyons.build({
   }
 }, StyleSheet)
 
-persistor.purge()
+// persistor.purge() uncomment this to empty your localstorage
 
 export default wrap (
   class Khimera extends PureComponent {

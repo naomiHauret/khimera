@@ -3,7 +3,7 @@ import { View, Linking, ScrollView } from "react-native"
 import { wrap } from "react-native-style-tachyons"
 import * as Animatable from "react-native-animatable"
 import { t } from "utils/translation"
-import Frame from 'components/presentationals/Frame'
+import Frame from 'components/wired/Frame'
 import Paragraph from 'components/presentationals/Paragraph'
 import Heading from 'components/presentationals/Heading'
 import Button from 'components/presentationals/Button'

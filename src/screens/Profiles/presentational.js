@@ -1,7 +1,7 @@
 import React, { PureComponent, Fragment } from "react"
 import Illustration from "components/presentationals/Illustration"
 import Text from "components/presentationals/Text"
-import Frame from "components/presentationals/Frame"
+import Frame from "components/wired/Frame"
 import Heading from "components/presentationals/Heading"
 import Paragraph from "components/presentationals/Paragraph"
 import Button from "components/presentationals/Button"
