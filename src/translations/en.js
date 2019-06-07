@@ -89,7 +89,7 @@ export default {
       app: {
         title: "About Khimera",
         text:
-          "Khimera is developed by VOICE. Khimera works in harmony with the DECOY robot and the BEAST system, which is also developed and built dby VOICE. These tools act together as real-timer translators between you and your animal.",
+          "Khimera is developed by VOICE. Khimera works in harmony with the DECOY robot and the BEAST system, which is also developed and built by VOICE. These tools act together as real-timer translators between you and your animal.",
       },
       premium: {
         title: "Premium plan",

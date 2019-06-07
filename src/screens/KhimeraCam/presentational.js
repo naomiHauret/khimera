@@ -84,7 +84,7 @@ class KhimeraCam extends PureComponent {
   }
 
   _sendRandomAnimalNotification = () => {
-    setTimeout(this._sendRandomBehaviour, 3500)
+    setTimeout(this._sendRandomBehaviour, 10500)
   }
 
   componentDidMount() {

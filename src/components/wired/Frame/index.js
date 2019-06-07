@@ -8,6 +8,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons"
 import { connect } from "react-redux"
 import { actions as TranslationActions } from "store/symbiotes/Translation"
 import { t } from "utils/translation"
+import { withNavigation } from 'react-navigation'
 
 const mapStateToProps = (state) => ({
   translation: state.translation,
@@ -76,4 +77,4 @@ class Frame extends PureComponent {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(wrap(Frame))
+)(withNavigation(wrap(Frame)))
