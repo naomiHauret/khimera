@@ -51,7 +51,7 @@ const MainNavigator = FluidNavigator({
   },
   ScreenAbout: {
     screen: ScreenAbout,
-  }
+  },
 })
 
 const InitializationNavigator = createSwitchNavigator({
@@ -70,4 +70,4 @@ const AppNavigator = createSwitchNavigator({
   Main: MainNavigator,
 })
 
-export default (Navigator = createAppContainer(AppNavigator))
+export default Navigator = createAppContainer(AppNavigator)

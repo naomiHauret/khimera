@@ -88,17 +88,20 @@ export default {
   screens: {
     about: {
       app: {
-        title: 'À propos de Khimera',
-        text: 'Khimera est une application développée par VOICE. Khimera fonctionne en symbiose avec le robot DECOY, également développé et construit par VOICE. Ensemble, ces deux outils agissent comme des traducteurs instantanés entre vous et votre animal.'
+        title: "À propos de Khimera",
+        text:
+          "Khimera est une application développée par VOICE. Khimera fonctionne en symbiose avec le robot DECOY, également développé et construit par VOICE. Ensemble, ces deux outils agissent comme des traducteurs instantanés entre vous et votre animal.",
       },
       premium: {
-        title: 'Mode premium',
-        text: 'Certaines fonctionnalités de Khimera ne sont disponibles que pour les utilisateurs ayant souscrit à notre formule premium. Cette formule permet d\'ajouter plusieurs profils de la même espèce au même robot DECOY et donne accès à l\'ensemble des packs d\'apprentissages de comportements et de langage pour vous et votre animal.'
+        title: "Mode premium",
+        text:
+          "Certaines fonctionnalités de Khimera ne sont disponibles que pour les utilisateurs ayant souscrit à notre formule premium. Cette formule permet d'ajouter plusieurs profils de la même espèce au même robot DECOY et donne accès à l'ensemble des packs d'apprentissages de comportements et de langage pour vous et votre animal.",
       },
       private: {
-        title: 'Respect de la vie privée',
-        text: 'Parce que le respect de votre vie privée fait partie de nos priorités, Khimera s\'engage à ne pas enregistrer et diffuser vos informations et messages.'
-      }
+        title: "Respect de la vie privée",
+        text:
+          "Parce que le respect de votre vie privée fait partie de nos priorités, Khimera s'engage à ne pas enregistrer et diffuser vos informations et messages.",
+      },
     },
     pairing: {
       title: "Appairage DECOY modèle KYUFORALL-Dog  avec KHIMERA en cours ...",

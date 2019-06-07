@@ -87,31 +87,33 @@ export default {
   screens: {
     about: {
       app: {
-        title: 'About Khimera',
-        text: 'Khimera is developed by VOICE. Khimera works in harmony with the DECOY robot and the BEAST system, which is also developed and built dby VOICE. These tools act together as real-timer translators between you and your animal.'
+        title: "About Khimera",
+        text:
+          "Khimera is developed by VOICE. Khimera works in harmony with the DECOY robot and the BEAST system, which is also developed and built dby VOICE. These tools act together as real-timer translators between you and your animal.",
       },
       premium: {
-        title: 'Premium plan',
-        text: 'Some features of Khimera are only available to users who subscribed to our premium plan. This plan allows you to add more than one animal to your DECOY system and gives you access to all  learning packs for you and your animal. '
+        title: "Premium plan",
+        text:
+          "Some features of Khimera are only available to users who subscribed to our premium plan. This plan allows you to add more than one animal to your DECOY system and gives you access to all  learning packs for you and your animal. ",
       },
       private: {
-        title: 'Your privacy',
-        text: 'Because we care about keeping your private life private,  Khimera won\'t register nor distribute your information and messages.'
-      }
+        title: "Your privacy",
+        text:
+          "Because we care about keeping your private life private,  Khimera won't register nor distribute your information and messages.",
+      },
     },
     pairing: {
       title: "Pairing your DECOY robot model KYUFORALL-Dog  with Khimera ...",
-      text:
-        "Thank you for your purchase ! This DECOY model was built to communicate instantaneously with dogs.",
+      text: "Thank you for your purchase ! This DECOY model was built to communicate instantaneously with dogs.",
     },
     askPermissions: {
       title: "Before we start...",
-      text: "In order to work, Khimera requires your permission to send notifications and access your camera, micrphone and pictures."
+      text:
+        "In order to work, Khimera requires your permission to send notifications and access your camera, micrphone and pictures.",
     },
     successPermissions: {
       title: "Thank you !",
-      text:
-        "You can now complete the profiles of all humans and dogs that Khimera and DECOY will help communicate.",
+      text: "You can now complete the profiles of all humans and dogs that Khimera and DECOY will help communicate.",
     },
     onboarding: {
       welcome: "Welcome on Khimera, the official companion app of DECOY robots  !",
@@ -134,7 +136,7 @@ export default {
     },
     chart: {
       label:
-        "Sadly, Khimera doesn\'t have enough data to analyze the evolution of your relationship with %name% for now.",
+        "Sadly, Khimera doesn't have enough data to analyze the evolution of your relationship with %name% for now.",
       text: "Check this in a few days.",
     },
   },
@@ -146,7 +148,7 @@ export default {
   },
   lessons: {
     offerFreeLesson:
-    "Khimera offers you a free behaviour correction for %name%. Given by your DECOY robot with the well-being %name% in mind, these lessons will take the time needed to help %name%.",
+      "Khimera offers you a free behaviour correction for %name%. Given by your DECOY robot with the well-being %name% in mind, these lessons will take the time needed to help %name%.",
     lessonPackPremium: "This lessons pack is only available to users that subscribed to our premium plan.",
     ongoingLesson: "You enrolled %name% on this lesson.",
     alreadyTakenFreeLesson:

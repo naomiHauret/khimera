@@ -50,47 +50,46 @@ class ProfileAnimal extends PureComponent {
           }}
         />
         <Animatable.View cls="flx-i" animation="fadeIn">
-
-        <Form
-          navigation={navigation}
-          shouldDisplayBack={isAnimalProfileAlreadyRegistered}
-          translation={translation}
-          values={{
-            name: formData ? formData.name : null,
-            picture: formData ? formData.picture : null,
-            species: formData ? formData.species : null,
-            decoyModel: formData ? formData.decoyModel : null,
-          }}
-          editName={this._editName}
-          editPicture={this._editPicture}
-          onSubmit={() => {
-            if (profile === "") {
-              let id = Date.now()
-              addProfile({
-                id,
-                name: formData.name,
-                species: formData.species,
-                decoyModel: formData.decoyModel,
-                picture: formData.picture,
-              })
-              if (checkInComplete !== true) {
-                setAsCurrent(id)
+          <Form
+            navigation={navigation}
+            shouldDisplayBack={isAnimalProfileAlreadyRegistered}
+            translation={translation}
+            values={{
+              name: formData ? formData.name : null,
+              picture: formData ? formData.picture : null,
+              species: formData ? formData.species : null,
+              decoyModel: formData ? formData.decoyModel : null,
+            }}
+            editName={this._editName}
+            editPicture={this._editPicture}
+            onSubmit={() => {
+              if (profile === "") {
+                let id = Date.now()
+                addProfile({
+                  id,
+                  name: formData.name,
+                  species: formData.species,
+                  decoyModel: formData.decoyModel,
+                  picture: formData.picture,
+                })
+                if (checkInComplete !== true) {
+                  setAsCurrent(id)
+                }
+                this._editName(null)
+                this._editPicture(null)
+                navigation.navigate("ScreenProfiles")
+              } else {
+                updateProfile({
+                  id: profile,
+                  name: formData.name,
+                  picture: formData.picture,
+                })
+                this._editName(null)
+                this._editPicture(null)
+                navigation.navigate("ScreenProfilesSaved")
               }
-              this._editName(null)
-              this._editPicture(null)
-              navigation.navigate("ScreenProfiles")
-            } else {
-              updateProfile({
-                id: profile,
-                name: formData.name,
-                picture: formData.picture,
-              })
-              this._editName(null)
-              this._editPicture(null)
-              navigation.navigate("ScreenProfilesSaved")
-            }
-          }}
-        />
+            }}
+          />
         </Animatable.View>
       </Fragment>
     )

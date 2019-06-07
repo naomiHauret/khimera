@@ -75,7 +75,6 @@ class ViewHuman extends PureComponent {
       return
     }
     this.props.disableButtons()
-    Vibration.vibrate()
     await this.setState({ recording: true })
     this._registerRecord()
     const record = await this.camera.recordAsync()

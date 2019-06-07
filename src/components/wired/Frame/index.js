@@ -54,7 +54,7 @@ class Frame extends PureComponent {
           </TouchableOpacity>
         )}
         <View cls="absolute" style={{ right: 10, top: 15 }}>
-          <View style={{position: 'relative'}}>
+          <View style={{ position: "relative" }}>
             <MaterialCommunityIcons name="google-translate" cls="yellow-600 ml1" size={20} />
             <Picker
               selectedValue={translation.locale}
@@ -73,9 +73,7 @@ class Frame extends PureComponent {
   }
 }
 
-
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(wrap(Frame))
-

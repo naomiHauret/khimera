@@ -73,9 +73,7 @@ export default wrap(
         >
           <Text
             type="bold"
-            additionalStyles={` ${themeSystem.align[align]} ${themeSystem.colors[theme].muted[muted]} ${
-              themeSystem.fontSizes[theme].muted[muted]
-            }`}
+            additionalStyles={` ${themeSystem.align[align]} ${themeSystem.colors[theme].muted[muted]} ${themeSystem.fontSizes[theme].muted[muted]}`}
           >
             {children}
           </Text>

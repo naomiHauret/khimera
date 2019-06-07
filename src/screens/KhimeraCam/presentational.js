@@ -70,6 +70,19 @@ class KhimeraCam extends PureComponent {
     updateAnimalMood({ id: currentAnimal.id, mood: emotionsList[randomEmotion] })
   }
 
+  _sendNotificationImmediately = () => {
+    const { translation, currentAnimal } = this.props
+    Notifications.presentLocalNotificationAsync({
+      title: t("labels.messageSent", translation),
+      body: t("messages.decoyToAnimal", translation, {
+        animalName: currentAnimal.name,
+      }),
+      android: {
+        sound: true,
+      },
+    })
+  }
+
   _sendRandomAnimalNotification = () => {
     setTimeout(this._sendRandomBehaviour, 3500)
   }
@@ -192,16 +205,8 @@ class KhimeraCam extends PureComponent {
             </View>
           </TouchableOpacity>
         </Animatable.View>
-        <Animatable.View
-            animation='fadeInRight'
-            delay={2400}
-          style={{ top: 20, right: 20, width: 40 }}
-            cls="absolute">
-          <BlurView
-            tint="dark"
-            intensity={10}
-            cls="flx-i br5 pv3"
-          >
+        <Animatable.View animation="fadeInRight" delay={2400} style={{ top: 20, right: 20, width: 40 }} cls="absolute">
+          <BlurView tint="dark" intensity={10} cls="flx-i br5 pv3">
             <View cls="aic jcc flx-i mb3" style={{ position: "relative" }}>
               <MaterialCommunityIcons name="google-translate" cls="white" size={20} />
               <Picker
@@ -214,7 +219,7 @@ class KhimeraCam extends PureComponent {
                 ))}
               </Picker>
             </View>
-            <TouchableOpacity cls="aic jcc flx-i mb3" onPress={() => navigation.navigate('ScreenAbout')}>
+            <TouchableOpacity cls="aic jcc flx-i mb3" onPress={() => navigation.navigate("ScreenAbout")}>
               <MaterialCommunityIcons name="help" cls="white" size={20} />
             </TouchableOpacity>
             <TouchableOpacity cls="aic jcc flx-i" onPress={() => Linking.openURL("https://parlezvousbestial.now.sh")}>
