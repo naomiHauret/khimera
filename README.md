@@ -30,7 +30,6 @@ Khimera is one of the fiction app I made for my end-year project : a design fict
 ## Install & run
 
 ### Technical requirements
-
 * `node` version > 11.10.0
 * `npm` version > 5.6
 * Android phone, version > 7
@@ -52,3 +51,8 @@ Grab your phone, flash the QR Code and that's it, Khimera is alive on your phone
 ## Credits
 
 3D Models by [Polydactyl](https://sketchfab.com/omabuarts)
+
+## Demo
+
+[![Khimera app - demo video](https://img.youtube.com/vi/_nbGrpLZz-E/0.jpg)](https://www.youtube.com/watch?v=_nbGrpLZz-E) 
+
