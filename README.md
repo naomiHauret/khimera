@@ -53,6 +53,7 @@ Grab your phone, flash the QR Code and that's it, Khimera is alive on your phone
 3D Models by [Polydactyl](https://sketchfab.com/omabuarts)
 
 ## Demo
+Click the image below to watch the video
 
 [![Khimera app - demo video](https://img.youtube.com/vi/_nbGrpLZz-E/0.jpg)](https://www.youtube.com/watch?v=_nbGrpLZz-E) 
 
